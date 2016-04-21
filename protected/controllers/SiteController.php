@@ -2,9 +2,14 @@
 
 class SiteController extends Controller
 {
-	/**
-	 * Declares class-based actions.
-	 */
+	public function init(){
+		RegisterFileUtil::registerDefaultFile();
+		$basePath = Yii::app()->baseUrl;
+		Yii::app()->getClientScript()->registerCssFile($basePath .
+            '/css/tours/style.css');
+
+	}
+
 	public function actions()
 	{
 		return array(
@@ -25,20 +30,36 @@ class SiteController extends Controller
 	 * This is the default 'index' action that is invoked
 	 * when an action is not explicitly requested by users.
 	 */
+	// home-site
 	public function actionIndex()
 	{
-		$baseUrl = Yii::app()->baseUrl;
-		$cs = Yii::app()->getClientScript();
-		$cs->registerCssFile($baseUrl.'/css/tours/reset.css');
-		$text = RegisterFileUtil::test();
-		$this->render('index', array(
-			'text' => $text
-		));
+		$this->render('index');
 	}
 
-	/**
-	 * This is the action to handle external exceptions.
-	 */
+	public function actionDestination()
+	{
+
+	}
+
+	public function actionTypes()
+	{
+
+	}
+
+	public function actionOffers()
+	{
+
+	}
+	public function actionInspireMe()
+	{
+
+	}
+
+	public function actionAboutUs()
+	{
+
+	}
+
 	public function actionError()
 	{
 		if($error=Yii::app()->errorHandler->error)
