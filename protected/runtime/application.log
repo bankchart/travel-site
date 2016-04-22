@@ -2780,3 +2780,130 @@ Stack trace:
 REQUEST_URI=/travel-site/dist/css/AdminLTE.min.css
 HTTP_REFERER=http://localhost/travel-site/index.php/Authenticate/index
 ---
+2016/04/22 15:24:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "dist/css/AdminLTE.min.css".' in /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController('dist/css/AdminL...')
+#1 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel-site/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel-site/dist/css/AdminLTE.min.css
+HTTP_REFERER=http://localhost/travel-site/index.php/authenticate/index
+---
+2016/04/22 15:24:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "plugins/iCheck/square/blue.css".' in /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController('plugins/iCheck/...')
+#1 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel-site/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel-site/plugins/iCheck/square/blue.css
+HTTP_REFERER=http://localhost/travel-site/index.php/authenticate/index
+---
+2016/04/22 15:24:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "plugins/iCheck/icheck.min.js".' in /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController('plugins/iCheck/...')
+#1 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel-site/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel-site/plugins/iCheck/icheck.min.js
+HTTP_REFERER=http://localhost/travel-site/index.php/authenticate/index
+---
+2016/04/22 15:24:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "plugins/jQuery/jQuery-2.2.0.min.js".' in /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController('plugins/jQuery/...')
+#1 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel-site/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel-site/plugins/jQuery/jQuery-2.2.0.min.js
+HTTP_REFERER=http://localhost/travel-site/index.php/authenticate/index
+---
+2016/04/22 15:24:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "plugins/jQuery/jQuery-2.2.0.min.js".' in /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController('plugins/jQuery/...')
+#1 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel-site/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel-site/plugins/jQuery/jQuery-2.2.0.min.js
+HTTP_REFERER=http://localhost/travel-site/index.php/authenticate/index
+---
+2016/04/22 15:24:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "plugins/iCheck/square/blue.css".' in /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController('plugins/iCheck/...')
+#1 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel-site/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel-site/plugins/iCheck/square/blue.css
+HTTP_REFERER=http://localhost/travel-site/index.php/authenticate/index
+---
+2016/04/22 15:24:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "plugins/iCheck/icheck.min.js".' in /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController('plugins/iCheck/...')
+#1 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel-site/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel-site/plugins/iCheck/icheck.min.js
+HTTP_REFERER=http://localhost/travel-site/index.php/authenticate/index
+---
+2016/04/22 15:24:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "dist/css/AdminLTE.min.css".' in /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController('dist/css/AdminL...')
+#1 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel-site/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel-site/dist/css/AdminLTE.min.css
+HTTP_REFERER=http://localhost/travel-site/index.php/authenticate/index
+---
+2016/04/22 15:25:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "adminpanel".' in /opt/lampp/htdocs/travel-site/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CController.php(270): CController->missingAction('adminpanel')
+#1 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(282): CController->run('adminpanel')
+#2 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController('site/adminpanel')
+#3 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel-site/index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel-site/index.php/adminpanel
+---
+2016/04/22 15:26:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "dist/css/AdminLTE.min.css".' in /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController('dist/css/AdminL...')
+#1 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel-site/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel-site/dist/css/AdminLTE.min.css
+HTTP_REFERER=http://localhost/travel-site/index.php/Authenticate/index
+---
+2016/04/22 15:26:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "plugins/iCheck/square/blue.css".' in /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController('plugins/iCheck/...')
+#1 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel-site/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel-site/plugins/iCheck/square/blue.css
+HTTP_REFERER=http://localhost/travel-site/index.php/Authenticate/index
+---
+2016/04/22 15:26:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "plugins/iCheck/icheck.min.js".' in /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController('plugins/iCheck/...')
+#1 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel-site/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel-site/plugins/iCheck/icheck.min.js
+HTTP_REFERER=http://localhost/travel-site/index.php/Authenticate/index
+---
+2016/04/22 15:26:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "plugins/jQuery/jQuery-2.2.0.min.js".' in /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController('plugins/jQuery/...')
+#1 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel-site/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel-site/plugins/jQuery/jQuery-2.2.0.min.js
+HTTP_REFERER=http://localhost/travel-site/index.php/Authenticate/index
+---
+2016/04/22 15:32:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/admin-panel/plugins/jQuery/jQuery-2.2.0.min.js".' in /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController('themes/admin-pa...')
+#1 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel-site/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel-site/themes/admin-panel/plugins/jQuery/jQuery-2.2.0.min.js
+HTTP_REFERER=http://localhost/travel-site/Authenticate/index
+---
