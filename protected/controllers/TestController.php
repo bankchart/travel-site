@@ -41,7 +41,8 @@ class TestController extends Controller
     }
     public function actionHttpVerbAjax(){
         echo '<pre>';
-        print_r(filter_input_array(INPUT_SERVER)['HTTP_X_REQUESTED_WITH']);
+        //print_r(filter_input_array(INPUT_SERVER)['HTTP_X_REQUESTED_WITH']);
+        print_r(filter_input_array(INPUT_SERVER));
         echo '</pre>';
     }
     public function actionInputFilterTest()

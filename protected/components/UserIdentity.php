@@ -18,7 +18,11 @@ class UserIdentity extends CUserIdentity
 	 /* start: mycode */
  	private $_id;
  	public function authenticate(){
- 		$record=MemberModel::model()->findByAttributes(array('username'=>$this->username));
+
+ 		$record=MemberModel::model()->find(array(
+            'condition' => 'email = :email',
+            'params'=> array(':email' => $this->username)
+        ));
  		if($record===null){
  			$this->errorCode=self::ERROR_USERNAME_INVALID;
  		}else if(!CPasswordHelper::verifyPassword($this->password,$record->password)){

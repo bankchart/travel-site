@@ -44,7 +44,26 @@ class AuthenticateController extends Controller
     }
     public function actionAuth()
     {
-        echo 'auth';
+        $email = filter_input(INPUT_POST, 'email');
+        $password = filter_input(INPUT_POST, 'password');
+        if(isset($email) && isset($password)){
+            // echo 'email : ' . $email;
+            // echo '<br/>passowrd : ' . $password;
+            $auth = new UserIdentity($email, $password);
+            if($auth->authenticate()){
+                Yii::app()->user->login($auth);
+                if(Yii::app()->user->isAdmin()){
+                    $this->redirect(array('//AdminPanel/index'));
+                }else{
+                    Yii::app()->user->logout();
+                }
+            }else{
+                header('refresh: 2; url=index');
+                echo 'Email or Password was Invalid.';
+            }
+        }else{
+            $this->redirect(array('//authenticate/index'));
+        }
     }
 }
 

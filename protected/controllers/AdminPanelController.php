@@ -38,11 +38,39 @@ class AdminPanelController extends Controller
 
     public function actionIndex()
     {
-        echo 'logged-in.';
+        $this->render('index');
+    }
+    public function actionEditHome()
+    {
+        $basePath = Yii::app()->baseUrl;
+        Yii::app()->getClientScript()->registerScriptFile($basePath .
+            '/js/tours/_edit-home.js', CClientScript::POS_END);
+        $this->render('_edit-home');
+    }
+    public function actionEditDestination()
+    {
+        $this->render('_edit-home');
+    }
+    public function actionEditTypes()
+    {
+        $this->render('_edit-home');
+    }
+    public function actionEditOffers()
+    {
+        $this->render('_edit-home');
+    }
+    public function actionEditInspireMe()
+    {
+        $this->render('_edit-home');
+    }
+    public function actionEditAboutus()
+    {
+        $this->render('_edit-home');
     }
     public function actionLogout()
     {
-        echo 'logout.';
+        Yii::app()->user->logout();
+        $this->redirect(array('//Authenticate/index'));
     }
 }
 
