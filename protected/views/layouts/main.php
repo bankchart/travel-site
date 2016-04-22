@@ -51,22 +51,22 @@
                     </div>
                     <div class='row header-menu hidden-xs'>
                         <div class='col-md-2 col-sm-2'>
-                            Home
+                            <a href='#'>Home</a>
                         </div>
                         <div class='col-md-2 col-sm-2'>
-                            Destination
+                            <a href='#'>Destination</a>
                         </div>
                         <div class='col-md-2 col-sm-2'>
-                            Types
+                            <a href='#'>Types</a>
                         </div>
                         <div class='col-md-2 col-sm-2'>
-                            Offers
+                            <a href='#'>Offers</a>
                         </div>
                         <div class='col-md-2 col-sm-2'>
-                            Inspire me
+                            <a href='#'>Inspire me</a>
                         </div>
                         <div class='col-md-2 col-sm-2'>
-                            About us
+                            <a href='#'>About us</a>
                         </div>
                     </div>
                     <div class='row visible-xs' style='padding-bottom: 15px; border-bottom: 2px solid #DCC300;'>

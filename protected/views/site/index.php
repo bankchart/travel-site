@@ -1,21 +1,33 @@
 <div class="container" style='padding: 0px;'>
     <div class='col-md-12' style='padding: 0px;'>
         <div class='index-slider'>
-            <div>
+            <div style='position: relative;'>
                 <img style='width: 100%;' src='<?php echo Yii::app()->baseUrl;
                     ?>/images/test/city-cars-road-traffic.jpg' />
+                <div class='jumbotron'>
+                    testing
+                </div>
             </div>
             <div>
                 <img style='width: 100%;' src='<?php echo Yii::app()->baseUrl;
                     ?>/images/test/beach-vacation-people-sand.jpg' />
+                <div class='jumbotron'>
+                    testing
+                </div>
             </div>
             <div>
                 <img style='width: 100%;' src='<?php echo Yii::app()->baseUrl;
                     ?>/images/test/city-people-walking-blur.jpg' />
+                <div class='jumbotron'>
+                    testing
+                </div>
             </div>
             <div>
                 <img style='width: 100%;' src='<?php echo Yii::app()->baseUrl;
                     ?>/images/test/city-sunny-people-street-large.jpg' />
+                <div class='jumbotron'>
+                    testing
+                </div>
             </div>
         </div>
         <div class='loading'>

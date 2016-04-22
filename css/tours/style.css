@@ -4,8 +4,27 @@ html, body {
 body {
     background-color: #A4A4A4;
 }
+.header-menu div a {
+    text-decoration: none;
+    color: #FFF;
+}
 .index-slider {
     position: relative;
+}
+.index-slider div {
+    position: relative;
+}
+.index-slider div div.jumbotron {
+    position: absolute;
+    opacity: 0.75;
+    color: #fff;
+    padding: 5px;
+    background-color: #000;
+    bottom: 0;
+    margin: 0px;
+    border-radius: 0px;
+    width: 100%;
+    min-height: 10%;
 }
 .loading {
     position: absolute;
