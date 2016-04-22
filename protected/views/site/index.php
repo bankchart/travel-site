@@ -12,7 +12,7 @@
                 <img style='width: 100%;' src='<?php echo Yii::app()->baseUrl;
                     ?>/images/test/beach-vacation-people-sand.jpg' />
                 <div class='jumbotron'>
-                    testing
+                                        
                 </div>
             </div>
             <div>

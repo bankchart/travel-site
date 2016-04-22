@@ -9,4 +9,15 @@ $(document).ready(function(){
             }, 1000);
         }, 2000);
     });
+    $.ajax({
+        /* test */
+        url: 'httpverbajax',
+        data: {
+            test : 'check http verb.',
+        },
+        success: function(data){
+
+        },
+        type: 'post'
+    });
 });
