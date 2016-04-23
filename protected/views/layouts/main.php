@@ -27,7 +27,7 @@
                             <a class='anchor-active' href='#'>EN</a> | <a href='#'>TH</a> | <a href='#'>CH</a>
                         </div>
                         <div class='col-md-4 col-sm-4 text-center'>
-                            <img style='width: 115px; height: 110px; margin-top: 15px;'
+                            <img onclick='javascript:location.href="<?Yii::app()->baseUrl;?>"' style='cursor: pointer; width: 115px; height: 110px; margin-top: 15px;'
                                 src='<?php echo Yii::app()->baseUrl; ?>/images/test/logo2.png' />
                         </div>
                         <div class='col-md-4 col-sm-4 col-xs-8 text-right hidden-xs'>

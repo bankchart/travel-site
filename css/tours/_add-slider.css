@@ -1,0 +1,38 @@
+div.thumbnail {
+    min-height: 30px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-top: 0px;
+    position: relative;
+}
+div.thumbnail>div {
+    position: relative;
+    margin: auto auto;
+    margin-top: 10px;
+    width: 80%;
+}
+div.thumbnail>div>img {
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 5px;
+    border: 1px
+    solid #ccc;
+}
+div.thumbnail>div>div {
+    border-radius: 2px;
+    padding: 5px;
+    border: 1px solid #fff;
+    border-top: 0px;
+    border-right: 0px;
+    border-style: solid;
+    background-color: #000;
+    color: #fff;
+    position: absolute;
+    opacity: 0.75;
+    top: 0;
+    right: 0;
+}
+div.thumbnail>div>div:hover {
+    cursor: pointer;
+    opacity: 1;
+}

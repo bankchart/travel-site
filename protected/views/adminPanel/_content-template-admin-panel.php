@@ -2,12 +2,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Home
-            <small>Update description</small>
+            Template html
+            <small>this is a example</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Pages</a></li>
-            <li class="active">Home</li>
+            <li><a href="#"><i class="fa fa-dashboard"></i> Overview.</a></li>
+            <li class="active">template</li>
         </ol>
     </section>
 
@@ -16,12 +16,12 @@
 
         <div class='box box-default'>
             <div class='box-header with-border'>
-                <h3 class='box-title'>Choose slider</h3>
+                <h3 class='box-title'>Label title of box-header.</h3>
             </div>
             <div class='box-body'>
                 <div class='row'>
                     <div class='col-md-12'>
-                        test
+                        content of box-body.
                     </div>
                 </div>
             </div>

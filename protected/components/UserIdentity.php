@@ -30,6 +30,8 @@ class UserIdentity extends CUserIdentity
  		}else{
  			$this->_id = $record->member_id;
  			$this->setState('authorityName', $record->level->level_access_name);
+            $record->lastest_signin_datetime = new CDbExpression('NOW()');
+            $record->save();
  			$this->errorCode=self::ERROR_NONE;
  		}
  		return !$this->errorCode;

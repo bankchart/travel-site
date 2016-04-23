@@ -59,7 +59,7 @@ class AuthenticateController extends Controller
                 }
             }else{
                 header('refresh: 2; url=index');
-                echo 'Email or Password was Invalid.';
+                echo 'Incorrect email or password.';
             }
         }else{
             $this->redirect(array('//authenticate/index'));

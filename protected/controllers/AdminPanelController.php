@@ -40,6 +40,27 @@ class AdminPanelController extends Controller
     {
         $this->render('index');
     }
+    public function actionAddSliderForm()
+    {
+        $basePath = Yii::app()->baseUrl;
+        Yii::app()->getClientScript()->registerCssFile($basePath .
+            '/css/tours/_add-slider.css');
+        Yii::app()->getClientScript()->registerScriptFile($basePath .
+            '/js/tours/_add-slider.js', CClientScript::POS_END);
+        $this->render('_add-slider');
+    }
+    public function actionAddSliderPreview()
+    {
+        $files = isset($_FILES['slider-images']) ? $_FILES['slider-images'] : null;
+        if(isset($files)){
+            var_dump($files);
+        }else{
+            echo 'failed';
+        }
+    }
+    public function actionAddSlider(){
+        echo 'design.....';
+    }
     public function actionEditHome()
     {
         $basePath = Yii::app()->baseUrl;
