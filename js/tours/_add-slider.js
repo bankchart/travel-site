@@ -1,4 +1,5 @@
 $(function(){
+    var textRes = 'uploaded';
     $('#slider-images').on('change', function(){
         if($(this).val() === ''){
             $('#progress-upload-images').width(0);
@@ -9,7 +10,6 @@ $(function(){
         var wait = setTimeout(function(){
             if($('#progress-upload-images').width() == 0){
                 setTimeout(function(){
-                    $('.thumbnail small').removeClass('waiting-pos');
                     $('#slider-form').submit();
                 }, 1000);
             }else{
@@ -26,6 +26,7 @@ $(function(){
             url: 'addsliderpreview',
             data: new FormData(e),
             type: 'post',
+            dataType: 'json',
             processData: false,
             contentType: false,
             xhr: function() {
@@ -36,7 +37,32 @@ $(function(){
                return p;
             },
             success: function(data){
-                console.log(data);
+                if(data.result_upload !== undefined){
+                    document.getElementById('slider-form').reset();
+                    textRes = 'upload fail or else';
+                    $('.thumbnail small').html(textRes);
+                    $('#progress-upload-images').width(0);
+                    return;
+                }else{
+                    textRes = 'uploaded.';
+                }
+                console.table(data);
+                var i=0;
+                var imgs = '';
+                for(d of data){
+                    imgs += "<img " +
+                        "src='"+d+"' />";
+                }
+                $('.img-preview').html(imgs);
+            },
+            error: function(responseText){
+                console.log('in error');
+                console.log(responseText);
+                document.getElementById('slider-form').reset();
+                textRes = 'upload fail or else';
+                $('.thumbnail small').html(textRes);
+                $('#progress-upload-images').width(0);
+                return;
             }
         });
     }
@@ -49,7 +75,7 @@ $(function(){
             $('.thumbnail small').html('uploading...' + percentage.toFixed(0) + '%');
             progElement.width(percentage + '%');
             if(percentage >= 100)
-                setTimeout(function(){$('.thumbnail small').html('uploaded');}, 1000);
+                setTimeout(function(){$('.thumbnail small').html(textRes);}, 1000);
         }
     }
 });

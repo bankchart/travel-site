@@ -3,6 +3,7 @@
 class AdminPanelController extends Controller
 {
     public $layout = '_admin-panel';
+    private $limit_size = 20;// 20Mb
     public function filters()
     {
         if(Yii::app()->user->isGuest)
@@ -51,9 +52,62 @@ class AdminPanelController extends Controller
     }
     public function actionAddSliderPreview()
     {
+
         $files = isset($_FILES['slider-images']) ? $_FILES['slider-images'] : null;
         if(isset($files)){
-            var_dump($files);
+            $path = 'images/temp_preview_images';
+
+            RmFileDir::recursiveRmDirectory($path);
+
+
+            $file_post = $files;
+            $arr = array();
+            $file_array = array();
+            $file_count = count($file_post['name']);
+            $file_keys = array_keys($file_post);
+
+            for ($i=0; $i<$file_count; $i++) {
+                foreach ($file_keys as $key) {
+                    if(($key == 'error' && $file_post[$key][$i] !== UPLOAD_ERR_OK) ||
+                        ($this->limit_size <  (is_int($file_post[$key][$i]) ?
+                        $file_post[$key][$i] : 0) / 1048576 && $key == 'size' ||
+                        (is_int($file_post[$key][$i]) ?
+                        $file_post[$key][$i] : 0) <= -1) ){
+                        echo CJSON::encode(array('result_upload' => 'failed'));
+                        exit;
+                    }
+                    $file_array[$i][$key] = $file_post[$key][$i];
+                }
+            }
+            /* start: move file to temp-dir */
+            $result = array();
+            for($i=0;$i<count($file_array);$i++){
+
+                if (($file_array[$i]["type"] != "image/pjpeg") AND
+                    ($file_array[$i]["type"] != "image/jpeg") AND
+                    ($file_array[$i]["type"] != "image/png") AND
+                    ($file_array[$i]["type"] != "image/gif")){
+                    echo CJSON::encode(array('result_upload' => "The image must be in either GIF ,
+                    JPG or PNG format. Please upload a JPG or PNG instead."));
+                    exit;
+                }elseif(!is_uploaded_file($file_array[$i]['tmp_name'])){
+                    //You may be attempting to hack our server. We're on to you; expect a knock on the door sometime soon.
+                    echo CJSON::encode(array('result_upload' => "failed : You may be attempting to hack our server.
+                    We're on to you; expect a knock on the door sometime soon."));
+                    exit;
+                }
+
+                $dest = $path . '/' . str_replace('.', '0', microtime());
+
+                if(!is_dir($path))
+                    mkdir($path);
+
+                move_uploaded_file($file_array[$i]['tmp_name'], str_replace(' ', '0', $dest));
+                array_push($result, Yii::app()->baseUrl . '/' . str_replace(' ', '0', $dest));
+            }
+            /* end: move file temp-dir */
+
+            echo CJSON::encode($result);
         }else{
             echo 'failed';
         }
@@ -74,7 +128,7 @@ class AdminPanelController extends Controller
     }
     public function actionEditTypes()
     {
-        $this->render('_edit-home');
+        $this->render('_edit-types');
     }
     public function actionEditOffers()
     {

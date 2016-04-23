@@ -36,3 +36,10 @@ div.thumbnail>div>div:hover {
     cursor: pointer;
     opacity: 1;
 }
+.img-preview img {
+    margin-bottom: 10px;
+    width:80%;
+    padding: 5px;
+    border: 1px
+    solid #ccc;
+}

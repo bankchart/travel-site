@@ -74,16 +74,10 @@
                                     <!--div>
                                         <img src='<?=Yii::app()->baseUrl;?>/images/test/holiday-3.jpg' />
                                         <div><i class='fa fa-close'></i></div>
-                                    </div>
-                                    <img style='margin-bottom: 10px;width:80%; padding: 5px; border: 1px solid #ccc;'
-                                        src='<?=Yii::app()->baseUrl;?>/images/test/holiday-3.jpg' />
-                                    <img style='margin-bottom: 10px;width: 80%; padding: 5px; border: 1px solid #ccc;'
-                                        src='<?=Yii::app()->baseUrl;?>/images/test/holiday-3.jpg' />
-                                    <img style='margin-bottom: 10px;width: 80%; padding: 5px; border: 1px solid #ccc;'
-                                        src='<?=Yii::app()->baseUrl;?>/images/test/holiday-3.jpg' />
-                                    <img style='margin-bottom: 10px;width: 80%; padding: 5px; border: 1px solid #ccc;'
-                                        src='<?=Yii::app()->baseUrl;?>/images/test/holiday-3.jpg' />
-                                    -->
+                                    </div-->
+                                    <!--  -->
+                                    <div class='img-preview'></div>
+                                    <!---->
                                 </div>
                             </div>
                         </div>
