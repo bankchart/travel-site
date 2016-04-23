@@ -44,7 +44,7 @@ class AuthenticateController extends Controller
     }
     public function actionAuth()
     {
-        $email = filter_input(INPUT_POST, 'email');
+        $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
         $password = filter_input(INPUT_POST, 'password');
         if(isset($email) && isset($password)){
             // echo 'email : ' . $email;

@@ -113,7 +113,23 @@ class AdminPanelController extends Controller
         }
     }
     public function actionAddSlider(){
-        echo 'design.....';
+        if(isset($_POST['slider-name'])){
+            $sliderName = $_POST['slider-name'];
+            if($sliderName !== ''){
+                
+            }
+        }else{
+            $this->render('index');
+        }
+        // if(isset(filter_input_array(INPUT_SERVER)['HTTP_X_REQUESTED_WITH']) &&
+        //     filter_input_array(INPUT_SERVER)['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest')
+        // {
+        //     // print_r($_POST);
+        //     // print_r($_FILES);
+        //     echo 'success';
+        // }else{
+        //     $this->redirect(array('index'));
+        // }
     }
     public function actionEditHome()
     {
@@ -147,6 +163,17 @@ class AdminPanelController extends Controller
         Yii::app()->user->logout();
         $this->redirect(array('//Authenticate/index'));
     }
+    public function actionError()
+	{
+        echo 'xxx';
+		if($error=Yii::app()->errorHandler->error)
+		{
+			if(Yii::app()->request->isAjaxRequest)
+				echo $error['message'];
+			else
+				$this->render('error', $error);
+		}
+	}
 }
 
 ?>

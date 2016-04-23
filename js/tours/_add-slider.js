@@ -1,8 +1,11 @@
 $(function(){
     var textRes = 'uploaded';
+    var chk = false;
     $('#slider-images').on('change', function(){
         if($(this).val() === ''){
             $('#progress-upload-images').width(0);
+            $('.thumbnail .img-preview').html('');
+            $('.thumbnail small').html('status image(s) uploading.')
             return false;
         }
         $('#progress-upload-images').width(0);
@@ -18,10 +21,57 @@ $(function(){
         }, 2000);
     });
     $('#slider-form').on('submit', function(e){
-        imagesPreviewAjax(this)
-        e.preventDefault();
+        if($('#slider-name').val().trim() !== '' && $('#slider-images').val() !== '' && imagesPreviewAjax(this))
+            slideSubmit(this);
+        return false;
     });
+    // function replaceSpace(text){
+    //     var temp = '';
+    //     if(text.indexOf(' ') != '-1'){
+    //         text[text.indexOf(' ')] = '-';
+    //         replaceSpace(text);
+    //     }
+    //     return text;
+    // }
+    $('#submit-upload').on('click', function(){
+        if($('#slider-name').val().trim() !== '' && $('#slider-images').val() !== ''){
+            $.ajax({
+                url: 'addslider',
+                data: {
+                            'slider-name' : $('#slider-name').val().trim()
+                        },
+                type: 'post',
+                success: function(data){
+                    console.log('addslider return data: ' + data);
+                },
+                error: function(responseText){
+                    console.log('submit-addslider-error' + responseText);
+                }
+            });
+        }
+    });
+    function slideSubmit(e){
+        $.ajax({
+            url: 'addslider',
+            data: new FormData(e),
+            type: 'post',
+            processData: false,
+            contentType: false,
+            async: false,
+            success: function(data){
+                if(data == 'success'){
+                    console.log('success');
+                }else
+                    console.log('failed');
+            },
+            error: function(requestObject, error, errorThrown) {
+                console.log(error);
+                console.log(errorThrown);
+            }
+        });
+    }
     function imagesPreviewAjax(e){
+        var result = false;
         $.ajax({
             url: 'addsliderpreview',
             data: new FormData(e),
@@ -29,6 +79,7 @@ $(function(){
             dataType: 'json',
             processData: false,
             contentType: false,
+            async: false,
             xhr: function() {
                var p = $.ajaxSettings.xhr();
                if(p.upload){
@@ -40,12 +91,14 @@ $(function(){
                 if(data.result_upload !== undefined){
                     document.getElementById('slider-form').reset();
                     textRes = 'upload fail or else';
-                    $('.thumbnail small').html(textRes);
+
                     $('#progress-upload-images').width(0);
                     return;
                 }else{
                     textRes = 'uploaded.';
+                    result = true;
                 }
+                $('.thumbnail small').html(textRes);
                 console.table(data);
                 var i=0;
                 var imgs = '';
@@ -56,15 +109,16 @@ $(function(){
                 $('.img-preview').html(imgs);
             },
             error: function(responseText){
+                $('.thumbnail .img-preview').html('');
                 console.log('in error');
-                console.log(responseText);
+                //console.log(responseText);
                 document.getElementById('slider-form').reset();
                 textRes = 'upload fail or else';
                 $('.thumbnail small').html(textRes);
                 $('#progress-upload-images').width(0);
-                return;
             }
         });
+        return result;
     }
     function progressUploading(e){
         if(e.lengthComputable){

@@ -223,7 +223,7 @@
                         <li class="header">HEADER</li>
                         <!-- Optionally, you can add icons to the links -->
                         <li><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-                        <li <?=($action == 'addslider')?'class="active"':''?>>
+                        <li <?=($action == 'addsliderform')?'class="active"':''?>>
                             <a href="<?=$baseUrl?>/adminPanel/addsliderform"><i class="fa fa-picture-o"></i>
                                 <span>Add slider</span>
                             </a>

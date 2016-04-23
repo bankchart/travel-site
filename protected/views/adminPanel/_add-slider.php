@@ -22,14 +22,14 @@
                         <div class='row'>
                             <div class='col-md-12'>
                                 <form id='slider-form' name='slider-form' enctype='multipart/form-data'
-                                    method='post' class='form-horizontal' action='addslider'>
+                                    method='post' class='form-horizontal' action='#'>
                                     <div class='form-group'>
                                         <label for='slider-name' class='col-md-3 col-sm-3 control-label'>
                                             Slider name
                                         </label>
                                         <div class='col-md-9 col-sm-9'>
                                             <input class='form-control' type='text' name='slider-name'
-                                                placeholder='Enter slider name' id='slider-name'/>
+                                                placeholder='Enter slider name' id='slider-name' required/>
                                         </div>
                                     </div>
                                     <div class='form-group'>
@@ -38,7 +38,7 @@
                                         </label>
                                         <div class='col-md-9 col-sm-9'>
                                             <input style='width: 100%; margin-top: 7px;' type='file' multiple='multiple'
-                                                name='slider-images[]' id='slider-images' />
+                                                name='slider-images[]' id='slider-images' required/>
                                             <p class="help-block">multiple selection</p>
                                             <div class='preview-images'></div>
                                         </div>
@@ -46,7 +46,7 @@
                                     <div class="form-group">
                                         <div class="col-md-offset-3 col-sm-offset-3
                                             col-md-9 col-sm-9">
-                                            <button type='submit' class="btn btn-primary">Upload to server</button>
+                                            <button id='submit-upload' type='submit' class="btn btn-primary">Upload to server</button>
                                         </div>
                                     </div>
                                 </form>
