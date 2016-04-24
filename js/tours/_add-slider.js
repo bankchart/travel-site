@@ -42,7 +42,6 @@ $(function(){
     });
 
     $('#slider-images').on('change', function(){
-        checkButtonSubmit();
         $('#progress-upload-images').width(0);
         $('.thumbnail .img-preview').html('');
         $('.thumbnail small').html('status image(s) uploading.');
@@ -52,6 +51,8 @@ $(function(){
             setTimeout(function(){
                 $('#slider-form').submit();
             }, 2000);
+        }else{
+            checkButtonSubmit();
         }
     });
     /* start: preview your images */
@@ -105,6 +106,7 @@ $(function(){
                         "src='"+d+"' />";
                 }
                 $('.img-preview').html(imgs);
+                checkButtonSubmit();
             },
             error: function(responseText){
                 $('.thumbnail .img-preview').html('');

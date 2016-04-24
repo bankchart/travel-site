@@ -39,7 +39,8 @@
                                         <div class='col-md-9 col-sm-9'>
                                             <input style='width: 100%; margin-top: 7px;' type='file' multiple='multiple'
                                                 name='slider-images[]' id='slider-images' required/>
-                                            <p class="help-block">multiple selection</p>
+                                            <p class="help-block">multiple selection<br/>
+                                                extension support <b>pjpeg</b> / <b>jpeg</b> / <b>png</b> / <b>gif</b> and less than <b>20Mb</b>)</p>
                                             <div class='preview-images'></div>
                                         </div>
                                     </div>
