@@ -14,9 +14,9 @@ class ImageModel extends CActiveRecord
     {
         return array(
             'image_id' => 'Image id',
+            'image_name' => 'Image name',
             'image_path' => 'Image path',
             'upload_datetime' => 'Upload datetime',
-            'slider_id' => 'Slider id',
             'author_id' => 'Author id'
         );
     }

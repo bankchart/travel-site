@@ -29,7 +29,9 @@
                                         </label>
                                         <div class='col-md-9 col-sm-9'>
                                             <input class='form-control' type='text' name='slider-name'
-                                                placeholder='Enter slider name' id='slider-name' required/>
+                                                title='Enter slider name(less than or equal to 50 characters)'
+                                                placeholder='Enter slider name(less than or equal to 50 characters)' id='slider-name'
+                                                required/>
                                         </div>
                                     </div>
                                     <div class='form-group'>
@@ -38,7 +40,8 @@
                                         </label>
                                         <div class='col-md-9 col-sm-9'>
                                             <input style='width: 100%; margin-top: 7px;' type='file' multiple='multiple'
-                                                name='slider-images[]' id='slider-images' required/>
+                                                name='slider-images[]' id='slider-images' title='extension support pjpeg / jpeg / png / gif and less than 20Mb)'
+                                                required/>
                                             <p class="help-block">multiple selection<br/>
                                                 extension support <b>pjpeg</b> / <b>jpeg</b> / <b>png</b> / <b>gif</b> and less than <b>20Mb</b>)</p>
                                             <div class='preview-images'></div>
@@ -74,7 +77,7 @@
                                 <div class="thumbnail text-center">
                                     <small>status image(s) uploading.</small>
                                     <!--div>
-                                        <img src='<?=Yii::app()->baseUrl;?>/images/test/holiday-3.jpg' />
+                                        <img src='<?php //echo Yii::app()->baseUrl;?>/images/test/holiday-3.jpg' />
                                         <div><i class='fa fa-close'></i></div>
                                     </div-->
                                     <!--  -->

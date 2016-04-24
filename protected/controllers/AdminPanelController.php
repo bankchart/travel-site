@@ -121,6 +121,7 @@ class AdminPanelController extends Controller
             if($sliderName !== '' && $confirmSubmit == 'submit'){
                 print_r($_POST);
                 print_r($_FILES);
+
             }else{
                 echo 'failed';
             }

@@ -102,7 +102,7 @@ $(function(){
                 var i=0;
                 var imgs = '';
                 for(d of data){
-                    imgs += "<img " +
+                    imgs += "<img alt='preview image for slider' " +
                         "src='"+d+"' />";
                 }
                 $('.img-preview').html(imgs);

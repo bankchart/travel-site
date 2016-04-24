@@ -17,7 +17,7 @@ class SliderModel extends CActiveRecord
             'slider_name' => 'Slider name',
             'create_datetime' => 'Created datetime',
             'author_id' => 'Author id'
-        )
+        );
     }
 }
 
