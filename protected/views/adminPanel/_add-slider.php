@@ -33,7 +33,7 @@
                                         </div>
                                     </div>
                                     <div class='form-group'>
-                                        <label for='slider-images' class='col-md-3 col-sm-3 control-label'>
+                                        <label class='col-md-3 col-sm-3 control-label'>
                                             Images
                                         </label>
                                         <div class='col-md-9 col-sm-9'>
@@ -46,9 +46,10 @@
                                     <div class="form-group">
                                         <div class="col-md-offset-3 col-sm-offset-3
                                             col-md-9 col-sm-9">
-                                            <button id='submit-upload' type='submit' class="btn btn-primary">Upload to server</button>
+                                            <button disabled='disabled' id='submit-upload-btn' type='button' class="btn btn-default">Upload to server</button>
                                         </div>
                                     </div>
+                                    <input type="hidden" id='confirm-submit' name="confirm-submit" value='non-submit'>
                                 </form>
                             </div>
                         </div>

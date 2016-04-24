@@ -52,13 +52,11 @@ class AdminPanelController extends Controller
     }
     public function actionAddSliderPreview()
     {
-
         $files = isset($_FILES['slider-images']) ? $_FILES['slider-images'] : null;
         if(isset($files)){
             $path = 'images/temp_preview_images';
 
             RmFileDir::recursiveRmDirectory($path);
-
 
             $file_post = $files;
             $arr = array();
@@ -109,27 +107,26 @@ class AdminPanelController extends Controller
 
             echo CJSON::encode($result);
         }else{
+            echo '...';
+            print_r($_FILES);
             echo 'failed';
         }
     }
     public function actionAddSlider(){
-        if(isset($_POST['slider-name'])){
+        if(isset($_POST['slider-name']) &&
+            isset(filter_input_array(INPUT_SERVER)['HTTP_X_REQUESTED_WITH']) &&
+            isset($_FILES)){
             $sliderName = $_POST['slider-name'];
-            if($sliderName !== ''){
-                
+            $confirmSubmit = $_POST['confirm-submit'];
+            if($sliderName !== '' && $confirmSubmit == 'submit'){
+                print_r($_POST);
+                print_r($_FILES);
+            }else{
+                echo 'failed';
             }
         }else{
             $this->render('index');
         }
-        // if(isset(filter_input_array(INPUT_SERVER)['HTTP_X_REQUESTED_WITH']) &&
-        //     filter_input_array(INPUT_SERVER)['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest')
-        // {
-        //     // print_r($_POST);
-        //     // print_r($_FILES);
-        //     echo 'success';
-        // }else{
-        //     $this->redirect(array('index'));
-        // }
     }
     public function actionEditHome()
     {

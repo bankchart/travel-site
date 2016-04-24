@@ -1,77 +1,77 @@
 $(function(){
-    var textRes = 'uploaded';
-    var chk = false;
-    $('#slider-images').on('change', function(){
-        if($(this).val() === ''){
-            $('#progress-upload-images').width(0);
-            $('.thumbnail .img-preview').html('');
-            $('.thumbnail small').html('status image(s) uploading.')
-            return false;
+    $('#slider-name').focus();
+    $('#slider-name').on('keyup', function(){
+        checkButtonSubmit();
+    });
+    $('#submit-upload-btn').on('click', function(){
+        if($('#slider-name').val() !== '' && $('#slider-images').val() !== ''){
+            $('#confirm-submit').val('submit');
+            $('#slider-form').attr('action', 'addslider');
+            $('#slider-form').submit();
+        }else{
+            $('#confirm-submit').val('non-submit');
         }
-        $('#progress-upload-images').width(0);
-        $('.thumbnail small').html('<div><img width="18" src="../images/loading.gif"/></div>');
-        var wait = setTimeout(function(){
-            if($('#progress-upload-images').width() == 0){
-                setTimeout(function(){
-                    $('#slider-form').submit();
-                }, 1000);
-            }else{
-                setTimeout(wait, 2000);
-            }
-        }, 2000);
     });
+
     $('#slider-form').on('submit', function(e){
-        if($('#slider-name').val().trim() !== '' && $('#slider-images').val() !== '' && imagesPreviewAjax(this))
-            slideSubmit(this);
-        return false;
-    });
-    // function replaceSpace(text){
-    //     var temp = '';
-    //     if(text.indexOf(' ') != '-1'){
-    //         text[text.indexOf(' ')] = '-';
-    //         replaceSpace(text);
-    //     }
-    //     return text;
-    // }
-    $('#submit-upload').on('click', function(){
-        if($('#slider-name').val().trim() !== '' && $('#slider-images').val() !== ''){
+        e.preventDefault();
+        var sliderName = $('#slider-name');
+        var confirmSubmit = $('#confirm-submit');
+        console.log('slider-name : ' + sliderName.val() + ', confirm-submit : ' +
+                        confirmSubmit.val());
+        if($('#slider-name').val() != '' && $('#confirm-submit').val() == 'submit'){
+            //console.log('submitting');
             $.ajax({
                 url: 'addslider',
-                data: {
-                            'slider-name' : $('#slider-name').val().trim()
-                        },
+                data: new FormData(this),
                 type: 'post',
+                processData: false,
+                contentType: false,
                 success: function(data){
-                    console.log('addslider return data: ' + data);
+
                 },
                 error: function(responseText){
-                    console.log('submit-addslider-error' + responseText);
+                    console.log('submitting');
+                    console.log(responseText);
                 }
             });
+        }else{
+            imagesPreviewAjax(this);
+            console.log('submit for preview');
         }
     });
-    function slideSubmit(e){
-        $.ajax({
-            url: 'addslider',
-            data: new FormData(e),
-            type: 'post',
-            processData: false,
-            contentType: false,
-            async: false,
-            success: function(data){
-                if(data == 'success'){
-                    console.log('success');
-                }else
-                    console.log('failed');
-            },
-            error: function(requestObject, error, errorThrown) {
-                console.log(error);
-                console.log(errorThrown);
+
+    $('#slider-images').on('change', function(){
+        checkButtonSubmit();
+        $('#progress-upload-images').width(0);
+        $('.thumbnail .img-preview').html('');
+        $('.thumbnail small').html('status image(s) uploading.');
+        if($(this).val() !== ''){
+            var loadingIcon = '<div><img width="18" src="../images/loading.gif"/></div>';
+            $('.thumbnail small').html(loadingIcon);
+            setTimeout(function(){
+                $('#slider-form').submit();
+            }, 2000);
+        }
+    });
+    /* start: preview your images */
+    function checkButtonSubmit(){
+        var button = $('#submit-upload-btn');
+        if($('#slider-name').val() != '' && $('#slider-images').val() != ''){
+            button.prop('disabled', false);
+            if(button.hasClass('btn-default')){
+                button.removeClass('btn-default');
+                button.addClass('btn-primary');
             }
-        });
+        }else{
+            button.prop('disabled', true);
+            if(button.hasClass('btn-primary')){
+                button.removeClass('btn-primary');
+                button.addClass('btn-default');
+            }
+        }
     }
     function imagesPreviewAjax(e){
-        var result = false;
         $.ajax({
             url: 'addsliderpreview',
             data: new FormData(e),
@@ -79,7 +79,6 @@ $(function(){
             dataType: 'json',
             processData: false,
             contentType: false,
-            async: false,
             xhr: function() {
                var p = $.ajaxSettings.xhr();
                if(p.upload){
@@ -96,7 +95,6 @@ $(function(){
                     return;
                 }else{
                     textRes = 'uploaded.';
-                    result = true;
                 }
                 $('.thumbnail small').html(textRes);
                 console.table(data);
@@ -110,6 +108,7 @@ $(function(){
             },
             error: function(responseText){
                 $('.thumbnail .img-preview').html('');
+                console.log(responseText);
                 console.log('in error');
                 //console.log(responseText);
                 document.getElementById('slider-form').reset();
@@ -118,9 +117,9 @@ $(function(){
                 $('#progress-upload-images').width(0);
             }
         });
-        return result;
     }
     function progressUploading(e){
+        console.log('progress');
         if(e.lengthComputable){
             var max = e.total;
             var current = e.loaded;
@@ -132,4 +131,5 @@ $(function(){
                 setTimeout(function(){$('.thumbnail small').html(textRes);}, 1000);
         }
     }
+    /* end: preview your images */
 });

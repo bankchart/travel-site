@@ -4445,3 +4445,21 @@ Stack trace:
 #7 {main}
 REQUEST_URI=/travel-site/adminPanel/addslider/ssdfsfsf
 ---
+2016/04/24 11:54:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/temp_preview_images".' in /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController('images/temp_pre...')
+#1 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel-site/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel-site/images/temp_preview_images/001075650001461491687
+HTTP_REFERER=http://localhost/travel-site/adminPanel/addsliderform
+---
+2016/04/24 11:54:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/temp_preview_images".' in /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController('images/temp_pre...')
+#1 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel-site/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel-site/images/temp_preview_images/001074090001461491687
+HTTP_REFERER=http://localhost/travel-site/adminPanel/addsliderform
+---
