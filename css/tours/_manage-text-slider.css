@@ -1,0 +1,4 @@
+.manage-label {}
+.manage-label:hover {
+    cursor: pointer;
+}

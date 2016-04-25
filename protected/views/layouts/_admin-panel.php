@@ -224,11 +224,11 @@
                         <!-- Optionally, you can add icons to the links -->
                         <li><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
                         <li <?=($action == 'addsliderform')?'class="active"':''?>>
-                            <a href="<?=$baseUrl?>/adminPanel/addsliderform"><i class="fa fa-picture-o"></i>
+                            <a href="<?=$baseUrl?>/adminPanel/Add-Slider-Form"><i class="fa fa-picture-o"></i>
                                 <span>Add slider</span>
                             </a>
                         </li>
-                        <li <?=($action == 'xaddsliderform')?'class="active"':''?>>
+                        <li <?=($action == 'textoverslideform')?'class="active"':''?>>
                             <a href="<?=$baseUrl?>/adminPanel/Text-Over-Slide-Form"><i class="fa fa-file-text"></i>
                                 <span>Text over slide</span>
                             </a>

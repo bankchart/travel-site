@@ -9,7 +9,7 @@ interface SliderInterface
         change image-in-slider
         remove image-text-over-slide -> image -> slider & remove file(s)
     */
-    public function querySlider(CDbCriteria $criteria);
+    public function querySlider($condition, array $params, $order, $limit, $offset);
     public function updateSlider();
     public function updateImageSlider();
     public function deleteImageFiles();

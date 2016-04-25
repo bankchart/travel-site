@@ -48,6 +48,7 @@ return array(
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 
+				'<controller:\w+>/Add-Slider-Form' => '<controller>/addsliderform',
 				'<controller:\w+>/Text-Over-Slide-Form' => '<controller>/textoverslideform'
 			),
 		),

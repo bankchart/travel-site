@@ -19,6 +19,12 @@ class SliderModel extends CActiveRecord
             'author_id' => 'Author id'
         );
     }
+    public function relations()
+    {
+        return array(
+            'author' => array(self::BELONGS_TO, 'MemberModel', 'author_id')
+        );
+    }
 }
 
 ?>

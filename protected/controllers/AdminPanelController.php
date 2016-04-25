@@ -53,6 +53,12 @@ class AdminPanelController extends Controller
     }
     public function actionAddSliderPreview()
     {
+        if(!isset(filter_input_array(INPUT_SERVER)['HTTP_X_REQUESTED_WITH']))
+            exit;
+        if(isset(filter_input_array(INPUT_SERVER)['HTTP_X_REQUESTED_WITH']))
+            if(filter_input_array(INPUT_SERVER)['HTTP_X_REQUESTED_WITH'] != 'XMLHttpRequest')
+                exit;
+
         $files = isset($_FILES['slider-images']) ? $_FILES['slider-images'] : null;
         if(isset($files)){
             $path = 'images/temp_preview_images';
@@ -116,6 +122,10 @@ class AdminPanelController extends Controller
         if(isset($_POST['slider-name']) &&
             isset(filter_input_array(INPUT_SERVER)['HTTP_X_REQUESTED_WITH']) &&
             isset($_FILES)){
+
+            if(filter_input_array(INPUT_SERVER)['HTTP_X_REQUESTED_WITH'] != 'XMLHttpRequest')
+                exit;
+
             $sliderName = $_POST['slider-name'];
             $confirmSubmit = $_POST['confirm-submit'];
             if($sliderName !== '' && $confirmSubmit == 'submit'){
@@ -222,17 +232,121 @@ class AdminPanelController extends Controller
                 echo 'failed';
             }
         }else{
-            $this->render('index');
+            $this->redirect(array('index'));
         }
     }
     public function actionTextOverSlideForm()
     {
+        $basePath = Yii::app()->baseUrl;
+        Yii::app()->getClientScript()->registerCssFile($basePath .
+            '/css/tours/_manage-text-slider.css');
+        Yii::app()->getClientScript()->registerScriptFile($basePath .
+            '/js/tours/_manage-text-slider.js', CClientScript::POS_END);
+
         $slider = new SliderManagement(null, new SliderModel);
-        $slider->querySlider(new CDbCriteria(array(
-            'condition' => '',
-            'params' => ''
-        )));
-        $this->render('_text-over-slide-form');
+        $limit = 5;
+        $offset = 0;
+        $tmp = count(SliderModel::model()->findAll())/$limit;
+        $pages = is_float($tmp) ? intval($tmp) + 1 : $tmp;
+        $selectPageHtml = '';
+        for($i=1;$i<=$pages;$i++){
+            $selected = $limit != $i ?:'selected';
+            $selectPageHtml .= "
+                <option $selected value='$i'>$i</option>
+            ";
+        }
+        $model = $slider->querySlider(null, array(), 'create_datetime desc', $limit, $offset);
+        $attributeLabels = SliderModel::model()->attributeLabels();
+        $this->render('_text-over-slide-form', array(
+            'model' => $model,
+            'attributeLabels' => $attributeLabels,
+            'limit' => $limit,
+            'offset' => $offset,
+            'selectPage' => $selectPageHtml
+        ));
+    }
+    public function actionTextOverSlideFormAjax()
+    {
+        if(isset(filter_input_array(INPUT_SERVER)['HTTP_X_REQUESTED_WITH'])){
+            if(filter_input_array(INPUT_SERVER)['HTTP_X_REQUESTED_WITH'] != 'XMLHttpRequest'){
+                echo CJSON::encode(array('fail XMLHttpRequest'));
+                exit;
+            }
+            if(isset($_POST['show-records']) && isset($_POST['show-page']) && isset($_POST['slider-search'])){
+                $show_records = filter_input(INPUT_POST, 'show-records', FILTER_SANITIZE_NUMBER_INT);
+                $show_page = filter_input(INPUT_POST, 'show-page', FILTER_SANITIZE_NUMBER_INT);
+                $search = trim(filter_input(INPUT_POST, 'slider-search',
+                            FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+
+                if($show_records <= 0 || $show_page < 0){
+                    echo CJSON::encode(array('fail show record | show page.'));
+                    exit;
+                }
+
+                $slider = new SliderManagement(null, new SliderModel);
+                $limit = $show_records;
+                $offset = $show_records * $show_page - $show_records;
+                $tmp = count(SliderModel::model()->findAll())/$limit;
+                $pages = is_float($tmp) ? intval($tmp) + 1 : $tmp;
+                $selectPageHtml = '';
+                for($i=1;$i<=$pages;$i++){
+                    $selected = $show_page != $i ?:'selected';
+                    $selectPageHtml .= "
+                        <option $selected value='$i'>$i</option>
+                    ";
+                }
+                $condition = null;
+                $params = array();
+
+                /* parameter: querySlider($condition, array $params, $order, $limit, $offset) */
+                if($search != ""){
+                    $condition = "slider_name LIKE '%$search%'";
+
+                }
+                $model = $slider->querySlider($condition, $params, 'create_datetime desc', $limit, $offset);
+                $record_info = "Showing " . ($offset + 1) . " to ";
+                $record_info .= count($model)<$limit?count($model)+$offset . " of ":$limit+$offset . " of ";
+                $record_info .= count(SliderModel::model()->findAll()) . " entries";
+
+                if($search != ""){
+                    $tempModel = SliderModel::model()->findAll(array(
+                        'condition' => 'slider_name LIKE "%'.$search.'%"'
+                    ));
+                    $tmp = count($tempModel)/$limit;
+                    $pages = is_float($tmp) ? intval($tmp) + 1 : $tmp;
+                    $pages = $pages>0 ? $pages : 1;
+                    $selectPageHtml = '';
+                    for($i=1;$i<=$pages;$i++){
+                        $selected = $show_page != $i ?:'selected';
+                        $selectPageHtml .= "
+                            <option $selected value='$i'>$i</option>
+                        ";
+                    }
+                    $record_info = "Showing " . ($offset + 1) . " to ";
+                    $record_info .= count($model)<$limit?count($model)+$offset . " of ":$limit+$offset . " of ";
+                    $record_info .= count($tempModel) . " entries";
+                }
+                if(count($model) == 0)
+                    $record_info = 'slider empty.';
+
+                echo CJSON::encode(array(
+                            'slider_content_partial' => $this->renderPartial('_slider-tbody-partial',
+                                array(
+                                    'model' => $model,
+                                    'limit' => $limit,
+                                    'offset' => $offset
+                                    ), true),
+                            'selectPage' => $selectPageHtml,
+                            'record_info' => $record_info,
+                            'search' => $search
+                    ));
+            }else{
+                echo CJSON::encode(array('fail input_post'));
+                exit;
+            }
+        }else{
+            $this->redirect(array('textoverslideform'));
+        }
     }
     public function actionEditHome()
     {
@@ -268,7 +382,6 @@ class AdminPanelController extends Controller
     }
     public function actionError()
 	{
-        echo 'xxx';
 		if($error=Yii::app()->errorHandler->error)
 		{
 			if(Yii::app()->request->isAjaxRequest)

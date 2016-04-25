@@ -4,6 +4,8 @@ class SliderManagement implements SliderInterface
 {
     private $path;
     private $sliderModel;
+    private $limit = 10;
+    private $offset = 0;
     /*
         query slider
         update slider-name
@@ -17,11 +19,16 @@ class SliderManagement implements SliderInterface
             $this->path = TravelConst::SLIDER_PATH;
         $this->sliderModel = $sliderModel;
     }
-    public function querySlider($condition, array $params)
+    public function querySlider($condition, array $params, $order, $limit, $offset)
     {
-        $criteria = new CDbCritreia;
-        $criteria->condition = $condition;
-        $criteria->params = $params;
+        $criteria = new CDbCriteria;
+        if($condition != null){
+            $criteria->condition = $condition;
+            $criteria->params = $params;
+        }
+        $criteria->limit = $limit == null ? $this->limit : $limit;
+        $criteria->offset = $offset == null ? $this->offset : $offset;
+        $criteria->order = $order;
         return $this->sliderModel->findAll($criteria);
     }
     public function updateSlider()
