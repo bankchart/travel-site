@@ -16,7 +16,8 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
-		'application.components.utils.*'
+		'application.components.utils.*',
+		'application.components.interfaces.*'
 	),
 
 	'modules'=>array(
@@ -46,6 +47,8 @@ return array(
 				'<action:\w+>' => 'site/<action>',
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+
+				'<controller:\w+>/Text-Over-Slide-Form' => '<controller>/textoverslideform'
 			),
 		),
 		/*

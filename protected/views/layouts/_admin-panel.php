@@ -228,6 +228,11 @@
                                 <span>Add slider</span>
                             </a>
                         </li>
+                        <li <?=($action == 'xaddsliderform')?'class="active"':''?>>
+                            <a href="<?=$baseUrl?>/adminPanel/Text-Over-Slide-Form"><i class="fa fa-file-text"></i>
+                                <span>Text over slide</span>
+                            </a>
+                        </li>
                         <li class="treeview <?=$active_Pages?>">
                             <a href="#"><i class="fa fa-edit"></i> <span>Pages</span> <i class="fa fa-angle-left pull-right"></i></a>
                             <ul class="treeview-menu <?=$menuOpen_Pages?>">

@@ -10,6 +10,16 @@ class TestController extends Controller
         Yii::app()->getClientScript()->registerCssFile($basePath .
             '/css/tours/test-style.css');
     }
+    public function actionTestInterface(){
+        echo TravelConst::SLIDER_PATH;
+        echo '<br/>';
+
+        // $a = new CDbCriteria;
+        // $b = new SliderModel;
+        // $c = new ImageTextOverModel;
+        // $interface = new SliderManagement(null, $b, $c);
+        // $interface->querySlider($a)->updateSlider($b);
+    }
     public function actionIndex(){
         $this->render('index');
     }

@@ -225,6 +225,15 @@ class AdminPanelController extends Controller
             $this->render('index');
         }
     }
+    public function actionTextOverSlideForm()
+    {
+        $slider = new SliderManagement(null, new SliderModel);
+        $slider->querySlider(new CDbCriteria(array(
+            'condition' => '',
+            'params' => ''
+        )));
+        $this->render('_text-over-slide-form');
+    }
     public function actionEditHome()
     {
         $basePath = Yii::app()->baseUrl;

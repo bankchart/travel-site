@@ -4582,3 +4582,62 @@ REQUEST_URI=/travel-site/adminPanel/addslider
 in /opt/lampp/htdocs/travel-site/protected/models/ImageModel.php (5)
 in /opt/lampp/htdocs/travel-site/protected/controllers/AdminPanelController.php (191)
 in /opt/lampp/htdocs/travel-site/index.php (14)
+2016/04/25 08:57:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "adminPanel".' in /opt/lampp/htdocs/travel-site/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CController.php(270): CController->missingAction('adminPanel')
+#1 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(282): CController->run('adminPanel')
+#2 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController('site/adminPanel')
+#3 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel-site/index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel-site/adminPanel/
+---
+2016/04/25 08:58:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "text-over-slide-form".' in /opt/lampp/htdocs/travel-site/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CController.php(270): CController->missingAction('text-over-slide...')
+#1 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(282): CController->run('text-over-slide...')
+#2 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController('adminPanel/text...')
+#3 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel-site/index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel-site/adminPanel/text-over-slide-form
+---
+2016/04/25 10:01:56 [error] [php] Missing argument 1 for SliderManagement::__construct(), called in /opt/lampp/htdocs/travel-site/protected/controllers/TestController.php on line 16 and defined (/opt/lampp/htdocs/travel-site/protected/components/SliderManagement.php:13)
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /opt/lampp/htdocs/travel-site/framework/web/CController.php(286): TestController->runAction()
+#2 /opt/lampp/htdocs/travel-site/framework/web/CController.php(265): TestController->runActionWithFilters()
+#3 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(282): TestController->run()
+#4 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#5 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /opt/lampp/htdocs/travel-site/index.php(14): CWebApplication->run()
+REQUEST_URI=/travel-site/test/testinterface
+in /opt/lampp/htdocs/travel-site/protected/components/SliderManagement.php (13)
+in /opt/lampp/htdocs/travel-site/protected/controllers/TestController.php (16)
+in /opt/lampp/htdocs/travel-site/index.php (14)
+2016/04/25 10:08:21 [error] [php] Argument 2 passed to SliderManagement::__construct() must be an instance of SliderModel, none given, called in /opt/lampp/htdocs/travel-site/protected/controllers/TestController.php on line 16 and defined (/opt/lampp/htdocs/travel-site/protected/components/SliderManagement.php:15)
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /opt/lampp/htdocs/travel-site/framework/web/CController.php(286): TestController->runAction()
+#2 /opt/lampp/htdocs/travel-site/framework/web/CController.php(265): TestController->runActionWithFilters()
+#3 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(282): TestController->run()
+#4 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#5 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /opt/lampp/htdocs/travel-site/index.php(14): CWebApplication->run()
+REQUEST_URI=/travel-site/test/testinterface
+in /opt/lampp/htdocs/travel-site/protected/components/SliderManagement.php (15)
+in /opt/lampp/htdocs/travel-site/protected/controllers/TestController.php (16)
+in /opt/lampp/htdocs/travel-site/index.php (14)
+2016/04/25 10:08:41 [error] [php] Argument 2 passed to SliderManagement::__construct() must be an instance of SliderModel, instance of CDbCriteria given, called in /opt/lampp/htdocs/travel-site/protected/controllers/TestController.php on line 20 and defined (/opt/lampp/htdocs/travel-site/protected/components/SliderManagement.php:15)
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /opt/lampp/htdocs/travel-site/framework/web/CController.php(286): TestController->runAction()
+#2 /opt/lampp/htdocs/travel-site/framework/web/CController.php(265): TestController->runActionWithFilters()
+#3 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(282): TestController->run()
+#4 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#5 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /opt/lampp/htdocs/travel-site/index.php(14): CWebApplication->run()
+REQUEST_URI=/travel-site/test/testinterface
+in /opt/lampp/htdocs/travel-site/protected/components/SliderManagement.php (15)
+in /opt/lampp/htdocs/travel-site/protected/controllers/TestController.php (20)
+in /opt/lampp/htdocs/travel-site/index.php (14)
