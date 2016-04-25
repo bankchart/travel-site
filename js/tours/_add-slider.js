@@ -1,5 +1,9 @@
 $(function(){
     $('#slider-name').focus();
+    $('.alert-over-page p').on('click', function(){
+        console.log('click alert over page.');
+        $('.alert-over-page p').addClass('alert-over-page-hide');
+    });
     $('#slider-name').on('keyup', function(){
         checkButtonSubmit();
     });
@@ -28,7 +32,9 @@ $(function(){
                 processData: false,
                 contentType: false,
                 success: function(data){
-
+                    if(data == 'test-alert'){
+                        $('.alert-over-page').removeClass('alert-hide').addClass('alert-show');
+                    }
                 },
                 error: function(responseText){
                     console.log('submitting');
@@ -109,9 +115,9 @@ $(function(){
                 checkButtonSubmit();
             },
             error: function(responseText){
+                console.log('in error');
                 $('.thumbnail .img-preview').html('');
                 console.log(responseText);
-                console.log('in error');
                 //console.log(responseText);
                 document.getElementById('slider-form').reset();
                 textRes = 'upload fail or else';

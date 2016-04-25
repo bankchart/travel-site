@@ -1,3 +1,12 @@
+<div class="alert-over-page alert-hide">
+    <p>
+        Create slider completed.
+        <small style='display: block;'>
+            <i>click for hide.</i>
+        </small>
+    </p>
+
+</div>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">

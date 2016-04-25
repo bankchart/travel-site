@@ -48,6 +48,7 @@ class AdminPanelController extends Controller
             '/css/tours/_add-slider.css');
         Yii::app()->getClientScript()->registerScriptFile($basePath .
             '/js/tours/_add-slider.js', CClientScript::POS_END);
+
         $this->render('_add-slider');
     }
     public function actionAddSliderPreview()
@@ -104,12 +105,11 @@ class AdminPanelController extends Controller
                 array_push($result, Yii::app()->baseUrl . '/' . str_replace(' ', '0', $dest));
             }
             /* end: move file temp-dir */
-
             echo CJSON::encode($result);
         }else{
-            echo '...';
-            print_r($_FILES);
-            echo 'failed';
+            echo CJSON::encode(array(
+                'result_upload' => 'fail'
+            ));
         }
     }
     public function actionAddSlider(){
@@ -119,9 +119,8 @@ class AdminPanelController extends Controller
             $sliderName = $_POST['slider-name'];
             $confirmSubmit = $_POST['confirm-submit'];
             if($sliderName !== '' && $confirmSubmit == 'submit'){
-                print_r($_POST);
-                print_r($_FILES);
-
+                $sliderName = $_POST['slider-name'];
+                $files = $_FILES['slider-images'];
             }else{
                 echo 'failed';
             }
