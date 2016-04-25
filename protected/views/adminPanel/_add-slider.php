@@ -1,6 +1,6 @@
 <div class="alert-over-page alert-hide">
     <p>
-        Create slider completed.
+        <label>&nbsp;</label>
         <small style='display: block;'>
             <i>click for hide.</i>
         </small>

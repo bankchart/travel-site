@@ -119,8 +119,59 @@ class AdminPanelController extends Controller
             $sliderName = $_POST['slider-name'];
             $confirmSubmit = $_POST['confirm-submit'];
             if($sliderName !== '' && $confirmSubmit == 'submit'){
-                $sliderName = $_POST['slider-name'];
+                //strip_tags, addslashes
+                $sliderName = addslashes(strip_tags($_POST['slider-name']));
                 $files = $_FILES['slider-images'];
+
+                /* start: move images file to slider-folder. */
+                    /* start: check error file */
+                foreach($files as $key => $value){
+                    if($key == 'error')
+                        foreach($value as $error)
+                            if($error != 0){
+                                echo 'error';
+                                exit;
+                            }
+                }
+                    /* end: check error file */
+
+                    /* start: check permission uploading file */
+                foreach($files as $key => $value){
+                    if($key == 'tmp_name'){
+                        foreach($value as $tmp_name)
+                            if(!is_uploaded_file($tmp_name)){
+                                echo "Can't upload any file.";
+                                exit;
+                            }
+                    }
+                }
+                    /* end: check permission uploading file */
+
+                    /* start: moving files */
+                $fileStore = array();
+                for($i=0;$i<count($files['name']);$i++){
+                    foreach($files as $key => $value){
+                        $fileStore[$i][$key] = $files[$key][$i];
+                    }
+                }
+                $path = 'images/slider';
+                if(!is_dir($path))
+                    mkdir($path);
+                foreach($fileStore as $file){
+                    $fileName = str_replace(' ', '0', str_replace('.', '0', microtime()));
+                    move_uploaded_file($file['tmp_name'], $path . '/' . $fileName);
+                }
+                echo 'upload completed.';
+                    /* end: moving files */
+
+                /* end: move images file to slider-folder. */
+
+                /* start: store data to slider_tb */
+                $sliderModel = new SliderModel;
+                $sliderModel->slider_name = $sliderName;
+                $sliderModel->author_id = Yii::app()->user->id;
+                $sliderModel->create_datetime = new CDbExpression('NOW()');
+                /* end: store data to slider_tb */
             }else{
                 echo 'failed';
             }

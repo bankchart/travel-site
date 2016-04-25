@@ -32,13 +32,24 @@ $(function(){
                 processData: false,
                 contentType: false,
                 success: function(data){
-                    if(data == 'test-alert'){
-                        $('.alert-over-page').removeClass('alert-hide').addClass('alert-show');
-                    }
+                    $('.alert-over-page').removeClass('alert-hide').addClass('alert-show');
+
+                    if(data == 'upload completed.')
+                        $('.alert-over-page p label').text('Upload completed.');
+                    else
+                        $('.alert-over-page p label').text('Upload failed.');
+
+                    $('#confirm-submit').val('non-submit');
+                    $('.alert-over-page p').removeClass('alert-over-page-hide');
+                    document.getElementById('slider-form').reset();
+                    checkButtonSubmit();
                 },
                 error: function(responseText){
+                    $('#confirm-submit').val('non-submit');
                     console.log('submitting');
                     console.log(responseText);
+                    document.getElementById('slider-form').reset();
+                    checkButtonSubmit();
                 }
             });
         }else{
