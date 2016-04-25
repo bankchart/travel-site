@@ -228,7 +228,7 @@
                                 <span>Add slider</span>
                             </a>
                         </li>
-                        <li <?=($action == 'textoverslideform')?'class="active"':''?>>
+                        <li <?=($action == 'slideimagelisttable' || $action == 'updatetextsliderform')?'class="active"':''?>>
                             <a href="<?=$baseUrl?>/adminPanel/Slide-Image-List"><i class="fa fa-file-text"></i>
                                 <span>Text over slide</span>
                             </a>

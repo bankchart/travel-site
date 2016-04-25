@@ -13,7 +13,7 @@
     <section class="content">
         <div class='box box-default'>
             <div class='box-header with-border'>
-                <h3 class='box-title'>Update text slider</h3>
+                <h3 class='box-title'>Slider list on table</h3>
             </div>
             <div class='box-body'>
                 <div class="row" style='padding-bottom: 10px;'>
@@ -34,7 +34,7 @@
                         </i>
                     </div>
                 </div>
-                <table class="table table-bordered table-striped dataTable">
+                <table class="table table-bordered table-striped table-hover dataTable">
                     <thead>
                         <tr>
                             <th>No.</th>

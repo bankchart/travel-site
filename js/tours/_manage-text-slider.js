@@ -1,6 +1,6 @@
 $(function(){
     $('.manage-label').on('click', function(){
-        console.log('click manage-label.');
+        location.href='Update-Text-Slider-Form/' + this.id;
     });
 
     $('#show-records').on('change', function(){
@@ -29,18 +29,18 @@ $(function(){
             type: 'post',
             dataType: 'json',
             beforeSend: function(){
-                console.log('show-records : ' + $('#show-records').val());
-                console.log('show-page : ' + $('#show-page').val());
+            //    console.log('show-records : ' + $('#show-records').val());
+            //    console.log('show-page : ' + $('#show-page').val());
             },
             success: function(data){
-                console.log('response === >>>' + data.slider_content_partial);
+            //    console.log('response === >>>' + data.slider_content_partial);
                 elm_update.html(data.slider_content_partial);
                 $('#show-page').html(data.selectPage);
                 $('#record-info').html(data.record_info);
             },
             error: function(responseText){},
             complete: function(data){
-                console.log(data);
+            //    console.log(data);
                 if(data.responseJSON.slider_content_partial == "")
                     elm_update.html('<tr><td colspan="5" style="text-align: center">Slider empty.</td></tr>');
             }

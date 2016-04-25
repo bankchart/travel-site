@@ -49,7 +49,8 @@ return array(
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 
 				'<controller:\w+>/Add-Slider-Form' => '<controller>/addsliderform',
-				'<controller:\w+>/Slide-Image-List' => '<controller>/slideimagelisttable'
+				'<controller:\w+>/Slide-Image-List' => '<controller>/slideimagelisttable',
+				'<controller:\w+>/Update-Text-Slider-Form/<slide:\d+>' => '<controller>/updatetextsliderform'
 			),
 		),
 		/*

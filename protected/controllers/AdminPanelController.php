@@ -348,6 +348,11 @@ class AdminPanelController extends Controller
             $this->redirect(array('textoverslideform'));
         }
     }
+    public function actionUpdateTextSliderForm($slide){
+        $this->render('_update-text-slide-form', array(
+            'slide' => $slide
+        ));
+    }
     public function actionEditHome()
     {
         $basePath = Yii::app()->baseUrl;
