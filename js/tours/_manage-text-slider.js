@@ -20,7 +20,7 @@ $(function(){
 
     function sliderListPartial(elm_update){
         $.ajax({
-            url: 'textoverslideformajax',
+            url: 'slideimagelisttableajax',
             data: {
                 'show-records' : $('#show-records').val(),
                 'show-page' : $('#show-page').val(),

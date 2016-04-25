@@ -235,7 +235,7 @@ class AdminPanelController extends Controller
             $this->redirect(array('index'));
         }
     }
-    public function actionTextOverSlideForm()
+    public function actionSlideImageListTable()
     {
         $basePath = Yii::app()->baseUrl;
         Yii::app()->getClientScript()->registerCssFile($basePath .
@@ -257,7 +257,7 @@ class AdminPanelController extends Controller
         }
         $model = $slider->querySlider(null, array(), 'create_datetime desc', $limit, $offset);
         $attributeLabels = SliderModel::model()->attributeLabels();
-        $this->render('_text-over-slide-form', array(
+        $this->render('_slide-image-list-table', array(
             'model' => $model,
             'attributeLabels' => $attributeLabels,
             'limit' => $limit,
@@ -265,7 +265,7 @@ class AdminPanelController extends Controller
             'selectPage' => $selectPageHtml
         ));
     }
-    public function actionTextOverSlideFormAjax()
+    public function actionSlideImageListTableAjax()
     {
         if(isset(filter_input_array(INPUT_SERVER)['HTTP_X_REQUESTED_WITH'])){
             if(filter_input_array(INPUT_SERVER)['HTTP_X_REQUESTED_WITH'] != 'XMLHttpRequest'){

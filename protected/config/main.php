@@ -49,7 +49,7 @@ return array(
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 
 				'<controller:\w+>/Add-Slider-Form' => '<controller>/addsliderform',
-				'<controller:\w+>/Text-Over-Slide-Form' => '<controller>/textoverslideform'
+				'<controller:\w+>/Slide-Image-List' => '<controller>/slideimagelisttable'
 			),
 		),
 		/*
