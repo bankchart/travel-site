@@ -2,7 +2,7 @@
 
 class ImageModel extends CActiveRecord
 {
-    public static function model($className=__CLASS_)
+    public static function model($className=__CLASS__)
     {
         return parent::model($className);
     }

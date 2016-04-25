@@ -41,6 +41,9 @@
                                                 title='Enter slider name(less than or equal to 50 characters)'
                                                 placeholder='Enter slider name(less than or equal to 50 characters)' id='slider-name'
                                                 required/>
+                                                <p class="help-block">
+                                                    unique slider name
+                                                </p>
                                         </div>
                                     </div>
                                     <div class='form-group'>

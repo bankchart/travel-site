@@ -17,7 +17,7 @@ class ImageTextOverModel extends CActiveRecord
             'image_id' => 'Image id',
             'content_text' => 'Content text',
             'lastest_update' => 'Lastest update' // with create datetime
-        )
+        );
     }
 }
 

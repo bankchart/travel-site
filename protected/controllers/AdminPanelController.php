@@ -157,21 +157,67 @@ class AdminPanelController extends Controller
                 $path = 'images/slider';
                 if(!is_dir($path))
                     mkdir($path);
-                foreach($fileStore as $file){
-                    $fileName = str_replace(' ', '0', str_replace('.', '0', microtime()));
-                    move_uploaded_file($file['tmp_name'], $path . '/' . $fileName);
+
+                $connection = Yii::app()->db;
+                $transaction = $connection->beginTransaction();
+                try{
+                    $checkDuplicate =  SliderModel::model()->find(array(
+                        'condition' => 'slider_name = :sliderName',
+                        'params' => array(':sliderName' => $sliderName)
+                    ));
+
+                    if($checkDuplicate != null)
+                        throw new Exception('slider name is duplicate.');
+
+                    $sliderModel = new SliderModel;
+                    $sliderModel->slider_name = $sliderName;
+                    $sliderModel->author_id = Yii::app()->user->id;
+                    $sliderModel->create_datetime = new CDbExpression('NOW()');
+
+                    if(!$sliderModel->save())
+                        throw new Exception('insert slider failed.');
+
+                    $lastestSliderModel = SliderModel::model()->find(array(
+                        'order' => 'slider_id desc'
+                    ));
+
+                    foreach($fileStore as $file){
+                        $fileName = str_replace(' ', '0', str_replace('.', '0', microtime()));
+
+                        if(move_uploaded_file($file['tmp_name'], $path . '/' . $fileName)){
+
+                            $imageModel = new ImageModel;
+                            $imageModel->image_name = $fileName;
+                            $imageModel->image_path = $path . '/' . $fileName;
+                            $imageModel->upload_datetime = new CDbExpression('NOW()');
+                            $imageModel->author_id = Yii::app()->user->id;
+
+                            if(!$imageModel->save())
+                                throw new Exception('insert image failed.');
+
+                            $lastestImageModel = ImageModel::model()->find(array(
+                                'order' => 'image_id desc'
+                            ));
+
+                            $imageTextOverModel = new ImageTextOverModel;
+                            $imageTextOverModel->slider_id = $lastestSliderModel->slider_id;
+                            $imageTextOverModel->image_id = $lastestImageModel->image_id;
+                            $imageTextOverModel->content_text = 'update content please.';
+                            $imageTextOverModel->lastest_update = new CDbExpression('NOW()');
+
+                            if(!$imageTextOverModel->save())
+                                throw new Exception('insert image text over slide');
+                        }
+                    }
+                    echo 'upload completed.';
+                    $transaction->commit();
+                }catch(Exception $ex){
+                    $transaction->rollback();
+                    echo 'upload filed.';
                 }
-                echo 'upload completed.';
                     /* end: moving files */
 
                 /* end: move images file to slider-folder. */
-
-                /* start: store data to slider_tb */
-                $sliderModel = new SliderModel;
-                $sliderModel->slider_name = $sliderName;
-                $sliderModel->author_id = Yii::app()->user->id;
-                $sliderModel->create_datetime = new CDbExpression('NOW()');
-                /* end: store data to slider_tb */
             }else{
                 echo 'failed';
             }
