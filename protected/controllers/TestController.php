@@ -10,6 +10,12 @@ class TestController extends Controller
         Yii::app()->getClientScript()->registerCssFile($basePath .
             '/css/tours/test-style.css');
     }
+    public function actionCountModel()
+    {
+        $test = new SliderModel;
+        $temp = count($test);
+        echo 'count model = ' . $test->slider_name;
+    }
     public function actionTestInterface(){
         echo TravelConst::SLIDER_PATH;
         echo '<br/>';

@@ -10,13 +10,20 @@ class ImageTextOverModel extends CActiveRecord
     {
         return 'image_text_over_tb';
     }
-    public function attributeLabels(){
+    public function attributeLabels()
+    {
         return array(
             'image_text_id' => 'Image text id',
             'slider_id' => 'Slider id',
             'image_id' => 'Image id',
             'content_text' => 'Content text',
             'lastest_update' => 'Lastest update' // with create datetime
+        );
+    }
+    public function relations()
+    {
+        return array(
+            'image' => array(self::BELONGS_TO, 'ImageModel', 'image_id')
         );
     }
 }

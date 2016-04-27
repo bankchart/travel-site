@@ -50,7 +50,8 @@ return array(
 
 				'<controller:\w+>/Add-Slider-Form' => '<controller>/addsliderform',
 				'<controller:\w+>/Slide-Image-List' => '<controller>/slideimagelisttable',
-				'<controller:\w+>/Update-Text-Slider-Form/<slide:\d+>' => '<controller>/updatetextsliderform'
+				'<controller:\w+>/Update-Text-Slider-Form/<slider_id:\d+>' => '<controller>/updatetextsliderform',
+				'<controller:\w+>/Remove-Slider' => '<controller>/removesliderajax'
 			),
 		),
 		/*

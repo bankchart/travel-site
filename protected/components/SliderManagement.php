@@ -41,10 +41,46 @@ class SliderManagement implements SliderInterface
         echo 'in updateimageSlider<br/>';
         return $this;
     }
-    public function deleteImageFiles()
+    public function deleteSlide($multi_delete = false, $ids = array())
     {
-        echo 'in deleteImageFiles';
-        return $this;
+        // $detail = '';
+        // echo $this->sliderModel->slider_name . '<br/>';
+        // foreach($this->sliderModel->image_text as $record){
+        //     $detail .= 'image-text-id : ' . $record->image_text_id;
+        //     $detail .= ', slider_id : ' . $record->slider_id;
+        //     $detail .= ', image_id : ' . $record->image_id;
+        //     $detail .= 'content-text : ' . $record->content_text;
+        //     $detail .= ', lastest-update : ' . $record->lastest_update . '<br/>';
+        // }
+        // echo $detail;
+
+        $connection = Yii::app()->db;
+        $transaction = $connection->beginTransaction();
+        try{
+            if(!$multi_delete){
+                $condition = 'slider_id = :sid';
+                $params = array(':sid' => $this->sliderModel->slider_id);
+                ImageTextOverModel::model()->deleteAll($condition, $params);
+                SliderModel::model()->deleteByPk($this->sliderModel->slider_id);
+            }else{
+                $temp = array();
+                for($i=0;$i<count($ids);$i++)
+                    $temp[$i] = ':id' . $i;
+                $slides_id = implode(',', $temp);
+
+                $condition = 'slider_id IN ('.$slides_id.')';
+                $param_ids = array();
+                for($i=0;$i<count($ids);$i++)
+                    $param_ids[':id' . $i] = $ids[$i];
+                ImageTextOverModel::model()->deleteAll($condition, $param_ids);
+                SliderModel::model()->deleteAll($condition, $param_ids);
+            }
+            $transaction->commit();
+            return 'deleted';
+        }catch(Exception $ex){
+            $transaction->rollback();
+            return 'Error message : ' . $ex->getMessage();
+        }
     }
 }
 

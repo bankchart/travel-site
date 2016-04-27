@@ -1,3 +1,12 @@
+<div class="alert-over-page alert-hide">
+    <p>
+        <label>&nbsp;</label>
+        <small style='display: block;'>
+            <i>click for hide.</i>
+        </small>
+    </p>
+
+</div>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -52,7 +61,8 @@
                         ?>
                         <tr>
                             <td>
-                                <input type="checkbox" class='checkbox-slider'
+                                <input type="checkbox" name='sliders' value='<?=$record->slider_id?>'
+                                    class='checkbox-slider'
                                     id="<?=$record->slider_id?>"/>
                             </td>
                             <td><?=$no++?></td>
@@ -68,7 +78,11 @@
                                 </span>
                             </td>
                         </tr>
-                        <?php endforeach; ?>
+                        <?php
+                        endforeach;
+                        if(count($model) == 0)
+                            echo '<tr><td colspan="6" class="text-center">Slider empty.</td></tr>';
+                        ?>
                     </tbody>
                     <tfoot>
                         <tr>
@@ -84,15 +98,19 @@
                 <div class="row" style='padding-top: 10px;'>
                     <div class="col-sm-12">
                         <i class='help-block' style='display: inline;'>selected with&nbsp;:&nbsp;</i>
-                        <span class="label label-danger remove-label">remove</span>
+                        <span id='multi-remove' title='multi-remove' class="label label-danger remove-label">remove</span>
                     </div>
                 </div>
                 <div class="row" style='padding-top: 10px;'>
                     <div class="col-sm-12">
                         <i id='record-info'>
+                        <?php if(count($model) > 0): ?>
                             Showing <?=($offset + 1)?> to
                             <?=count($model)<$limit?count($model):$limit?> of
                             <?=count(SliderModel::model()->findAll())?> entries
+                        <?php else: ?>
+                            Slider empty.
+                        <?php endif; ?>
                         </i>
                         <i class='pull-right'>
                             Page&nbsp;

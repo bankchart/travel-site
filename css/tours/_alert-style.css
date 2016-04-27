@@ -1,0 +1,44 @@
+.alert-over-page-hide {
+    opacity: 0;
+    transition: 0.8s;
+    display: none;
+}
+.alert-over-page {
+    position: fixed;
+    top: 0;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    font-size: 15px;
+    z-index: 10000;
+    opacity: 0.75;
+    background-color: #999;
+    padding-top: 25px;
+}
+.alert-over-page p:hover {
+    cursor: pointer;
+}
+.alert-over-page>p {
+    max-width: 250px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #fff;
+    margin: auto auto;
+    background-color: #413b3b;
+
+    -o-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+
+    border-radius: 5px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+.alert-hide {
+    display: none;
+    /*visibility: hidden;*/
+}
+.alert-show {
+    display: block;
+    /*visibility: visible;*/
+}

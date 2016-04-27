@@ -12,7 +12,7 @@ interface SliderInterface
     public function querySlider($condition, array $params, $order, $limit, $offset);
     public function updateSlider();
     public function updateImageSlider();
-    public function deleteImageFiles();
+    public function deleteSlide($multi_delete);
 }
 
 ?>

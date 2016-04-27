@@ -241,6 +241,10 @@ class AdminPanelController extends Controller
     {
         $basePath = Yii::app()->baseUrl;
         Yii::app()->getClientScript()->registerCssFile($basePath .
+            '/css/tours/_alert-style.css' . $this->_file_version);
+
+        $basePath = Yii::app()->baseUrl;
+        Yii::app()->getClientScript()->registerCssFile($basePath .
             '/css/tours/_manage-text-slider.css' . $this->_file_version);
         Yii::app()->getClientScript()->registerScriptFile($basePath .
             '/js/tours/_manage-text-slider.js' . $this->_file_version, CClientScript::POS_END);
@@ -350,10 +354,54 @@ class AdminPanelController extends Controller
             $this->redirect(array('textoverslideform'));
         }
     }
-    public function actionUpdateTextSliderForm($slide){
+    public function actionUpdateTextSliderForm($slider_id){
         $this->render('_update-text-slide-form', array(
-            'slide' => $slide
+            'slide' => $slider_id
         ));
+    }
+    public function actionRemoveSliderAjax(){
+        if(isset(filter_input_array(INPUT_SERVER)['HTTP_X_REQUESTED_WITH'])){
+            if(filter_input_array(INPUT_SERVER)['HTTP_X_REQUESTED_WITH'] != 'XMLHttpRequest')
+                exit;
+
+            if(isset($_POST['slider_id'])){
+                /*
+                * FILTER_SANITIZE_NUMBER_INT
+                * Remove all characters except digits, plus and minus sign.
+                */
+                if(strpos($_POST['slider_id'], '"') !== false){
+                    if($_POST['slider_id'] == '""')
+                        exit;
+                    $temp = explode('&', str_replace('sliders=', '',
+                                str_replace('"', '', $_POST['slider_id'])));
+                    $ids = array();
+                    $index = 0;
+                    foreach($temp as $n){
+                        $temp_id = trim(filter_var($n,
+                                        FILTER_SANITIZE_NUMBER_INT));
+                        $temp_id = str_replace('+', '', $temp_id);
+                        $temp_id = str_replace('-', '', $temp_id);
+                        $ids[$index] = $temp_id;
+                        $index++;
+                    }
+                    $delete = new SliderManagement(null, new SliderModel);
+                    echo $delete->deleteSlide(true, $ids);
+                    exit;
+                }
+                $slider_id = $_POST['slider_id'];
+                $slider_id = trim(filter_input(INPUT_POST, 'slider_id',
+                                FILTER_SANITIZE_NUMBER_INT));
+                $slider_id = str_replace('+', '', $slider_id);
+                $slider_id = str_replace('-', '', $slider_id);
+                $sliderModel = SliderModel::model()->findByPk($slider_id);
+                if($sliderModel === null)
+                    $sliderModel = new SliderModel;
+                $delete = new SliderManagement(null, $sliderModel);
+                echo $delete->deleteSlide();
+            }
+        }else{
+            exit;
+        }
     }
     public function actionEditHome()
     {

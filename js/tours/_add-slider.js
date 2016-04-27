@@ -3,6 +3,8 @@ $(function(){
     $('.alert-over-page p').on('click', function(){
         console.log('click alert over page.');
         $('.alert-over-page p').addClass('alert-over-page-hide');
+        $('.alert-over-page').removeClass('alert-show');
+        $('.alert-over-page').addClass('alert-hide');
     });
     $('#slider-name').on('keyup', function(){
         checkButtonSubmit();

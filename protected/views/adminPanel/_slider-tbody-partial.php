@@ -4,7 +4,8 @@ foreach($model as $record):
 ?>
 <tr>
     <td>
-        <input type='checkbox' class='checkbox-slider'
+        <input type='checkbox' name='sliders' value='<?=$record->slider_id?>'
+            class='checkbox-slider'
             id='<?=$record->slider_id?>' />
     </td>
     <td><?=$no++?></td>

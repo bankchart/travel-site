@@ -22,7 +22,8 @@ class SliderModel extends CActiveRecord
     public function relations()
     {
         return array(
-            'author' => array(self::BELONGS_TO, 'MemberModel', 'author_id')
+            'author' => array(self::BELONGS_TO, 'MemberModel', 'author_id'),
+            'image_text' => array(self::HAS_MANY, 'ImageTextOverModel', 'slider_id')
         );
     }
 }
