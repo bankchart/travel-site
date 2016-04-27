@@ -21,7 +21,8 @@ class TestController extends Controller
         // $interface->querySlider($a)->updateSlider($b);
     }
     public function actionIndex(){
-        $this->render('index');
+        echo $_SERVER['HTTP_HOST'];
+        //$this->render('index');
     }
     public function actionGenPassword(){
         $model = MemberModel::model()->find(array(

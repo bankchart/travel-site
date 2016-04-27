@@ -4796,3 +4796,132 @@ Stack trace:
 REQUEST_URI=/travel-site/adminPanel/Update-Text-Slider-Form/Slide-Image-List
 HTTP_REFERER=http://localhost/travel-site/adminPanel/Update-Text-Slider-Form/8
 ---
+2016/04/26 15:47:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/loading.gif".' in /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController('images/loading....')
+#1 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel-site/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel-site/index.php/images/loading.gif
+HTTP_REFERER=http://localhost/travel-site/index.php/AdminPanel/Slide-Image-List
+---
+2016/04/26 15:48:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/loading.gif".' in /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController('images/loading....')
+#1 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel-site/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel-site/index.php/images/loading.gif
+HTTP_REFERER=http://localhost/travel-site/index.php/AdminPanel/Slide-Image-List
+---
+2016/04/26 15:48:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/loading.gif".' in /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController('images/loading....')
+#1 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel-site/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel-site/index.php/images/loading.gif
+HTTP_REFERER=http://localhost/travel-site/index.php/AdminPanel/Slide-Image-List
+---
+2016/04/26 15:48:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/loading.gif".' in /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController('images/loading....')
+#1 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel-site/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel-site/index.php/images/loading.gif
+HTTP_REFERER=http://localhost/travel-site/index.php/AdminPanel/Slide-Image-List
+---
+2016/04/26 15:49:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/loading.gif".' in /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController('images/loading....')
+#1 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel-site/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel-site/index.php/images/loading.gif
+HTTP_REFERER=http://localhost/travel-site/index.php/AdminPanel/Slide-Image-List
+---
+2016/04/26 15:49:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/loading.gif".' in /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController('images/loading....')
+#1 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel-site/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel-site/index.php/images/loading.gif
+HTTP_REFERER=http://localhost/travel-site/index.php/AdminPanel/Slide-Image-List
+---
+2016/04/26 15:49:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/loading.gif".' in /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController('images/loading....')
+#1 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel-site/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel-site/index.php/images/loading.gif
+HTTP_REFERER=http://localhost/travel-site/index.php/AdminPanel/Slide-Image-List
+---
+2016/04/26 15:50:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/loading.gif".' in /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController('images/loading....')
+#1 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel-site/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel-site/index.php/images/loading.gif
+HTTP_REFERER=http://localhost/travel-site/index.php/AdminPanel/Add-Slider-Form
+---
+2016/04/26 15:51:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/loading.gif".' in /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController('images/loading....')
+#1 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel-site/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel-site/index.php/images/loading.gif
+HTTP_REFERER=http://localhost/travel-site/index.php/AdminPanel/Add-Slider-Form
+---
+2016/04/26 15:59:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/loading.gif".' in /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController('images/loading....')
+#1 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel-site/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel-site/index.php/images/loading.gif
+HTTP_REFERER=http://localhost/travel-site/index.php/AdminPanel/Slide-Image-List
+---
+2016/04/26 16:04:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/loading.gif".' in /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController('images/loading....')
+#1 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel-site/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel-site/index.php/images/loading.gif
+HTTP_REFERER=http://localhost/travel-site/index.php/AdminPanel/Slide-Image-List
+---
+2016/04/26 16:10:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/loading.gif".' in /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController('images/loading....')
+#1 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/travel-site/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/travel-site/index.php/images/loading.gif
+HTTP_REFERER=http://localhost/travel-site/index.php/AdminPanel/Slide-Image-List
+---
+2016/04/26 16:42:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "localhost".' in /opt/lampp/htdocs/travel-site/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CController.php(270): CController->missingAction('localhost')
+#1 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(282): CController->run('localhost')
+#2 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController('adminPanel/loca...')
+#3 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel-site/index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel-site/index.php/adminPanel/localhost/index.php/adminPanel/slideimagelisttableajax
+HTTP_REFERER=http://localhost/travel-site/index.php/adminPanel/Slide-Image-List
+---
+2016/04/26 16:56:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "test".' in /opt/lampp/htdocs/travel-site/framework/web/CController.php:483
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CController.php(270): CController->missingAction('test')
+#1 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(282): CController->run('test')
+#2 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController('site/test')
+#3 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /opt/lampp/htdocs/travel-site/index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/travel-site/test
+---

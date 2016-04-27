@@ -57,6 +57,7 @@
                             <td>
                                 <span id='<?=$record->slider_id?>'
                                     class='label label-primary manage-label'>manage</span>
+                                <span class="label label-danger manage-label">remove</span>
                             </td>
                         </tr>
                         <?php endforeach; ?>

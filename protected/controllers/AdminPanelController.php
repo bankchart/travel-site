@@ -6,9 +6,10 @@ class AdminPanelController extends Controller
     private $limit_size = 20;// 20Mb
     public function filters()
     {
+        //$domain = $_SERVER['HTTP_HOST'] != 'localhost' ? 'curzontravel.com' : 'localhost';
         if(Yii::app()->user->isGuest)
+            //$this->redirect('/' . $domain . '/index.php/Authenticate/index');
             $this->redirect(array('//Authenticate/index'));
-
         $basePath = Yii::app()->baseUrl;
 		Yii::app()->getClientScript()->registerCssFile($basePath .
             '/themes/admin-panel/bootstrap/css/bootstrap.css');
@@ -45,9 +46,9 @@ class AdminPanelController extends Controller
     {
         $basePath = Yii::app()->baseUrl;
         Yii::app()->getClientScript()->registerCssFile($basePath .
-            '/css/tours/_add-slider.css');
+            '/css/tours/_add-slider.css?v=' . microtime());
         Yii::app()->getClientScript()->registerScriptFile($basePath .
-            '/js/tours/_add-slider.js', CClientScript::POS_END);
+            '/js/tours/_add-slider.js?v=' . microtime(), CClientScript::POS_END);
 
         $this->render('_add-slider');
     }
@@ -239,9 +240,9 @@ class AdminPanelController extends Controller
     {
         $basePath = Yii::app()->baseUrl;
         Yii::app()->getClientScript()->registerCssFile($basePath .
-            '/css/tours/_manage-text-slider.css');
+            '/css/tours/_manage-text-slider.css?v=' . microtime());
         Yii::app()->getClientScript()->registerScriptFile($basePath .
-            '/js/tours/_manage-text-slider.js', CClientScript::POS_END);
+            '/js/tours/_manage-text-slider.js?v=' . microtime(), CClientScript::POS_END);
 
         $slider = new SliderManagement(null, new SliderModel);
         $limit = 5;
@@ -345,7 +346,7 @@ class AdminPanelController extends Controller
                 exit;
             }
         }else{
-            $this->redirect(array('textoverslideform'));
+            $this->redirect(array('//adminPanel/index'));
         }
     }
     public function actionUpdateTextSliderForm($slide){
@@ -357,7 +358,7 @@ class AdminPanelController extends Controller
     {
         $basePath = Yii::app()->baseUrl;
         Yii::app()->getClientScript()->registerScriptFile($basePath .
-            '/js/tours/_edit-home.js', CClientScript::POS_END);
+            '/js/tours/_edit-home.js?v=' . microtime(), CClientScript::POS_END);
         $this->render('_edit-home');
     }
     public function actionEditDestination()

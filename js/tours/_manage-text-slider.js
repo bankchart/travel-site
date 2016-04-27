@@ -1,4 +1,7 @@
 $(function(){
+    /* var waiting forwarding... */
+    var domain = window.location.hostname != 'localhost' ? 'curzontravel.com' : 'travel-site';
+    /* var waiting forwarding... */
     $('body').on('click', '.manage-label', function(){
         location.href='Update-Text-Slider-Form/' + this.id;
     });
@@ -19,8 +22,9 @@ $(function(){
     });
 
     function sliderListPartial(elm_update){
+
         $.ajax({
-            url: 'slideimagelisttableajax',
+            url: 'http://' + window.location.hostname + '/' + domain + '/index.php/adminPanel/slideimagelisttableajax',
             data: {
                 'show-records' : $('#show-records').val(),
                 'show-page' : $('#show-page').val(),
@@ -31,7 +35,7 @@ $(function(){
             beforeSend: function(){
                 var loading = '<tr>';
                 loading += '<td colspan="5" style="text-align: center">';
-                loading += '<img width="20" src="../images/loading.gif"/>';
+                loading += '<img width="20" src="../../images/loading.gif"/>';
                 loading += '</td>';
                 loading += '</tr>';
                 elm_update.html(loading);

@@ -5,8 +5,9 @@ class AuthenticateController extends Controller
     public $layout = '_admin-login';
     public function filters()
     {
+        $domain = $_SERVER['HTTP_HOST'] != 'localhost' ? 'curzontravel.com' : 'localhost';
         if(!Yii::app()->user->isGuest)
-            $this->redirect(array('//adminPanel/index'));
+            $this->redirect('/' . $domain . '/index.php/adminPanel/index');
 
         $basePath = Yii::app()->baseUrl;
 		Yii::app()->getClientScript()->registerCssFile($basePath .
@@ -62,7 +63,8 @@ class AuthenticateController extends Controller
                 echo 'Incorrect email or password.';
             }
         }else{
-            $this->redirect(array('//authenticate/index'));
+            $domain = $_SERVER['HTTP_HOST'] != 'localhost' ? 'curzontravel.com' : 'localhost';
+            $this->redirect('/' . $domain . '/index.php/authenticate/index');
         }
     }
 }

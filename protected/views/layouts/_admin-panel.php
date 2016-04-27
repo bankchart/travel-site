@@ -179,7 +179,7 @@
                                         <a href="#" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="logout" class="btn btn-default btn-flat">Sign out</a>
+                                        <a href="<?=Yii::app()-request->baseUrl?>/index.php/adminPanel/logout" class="btn btn-default btn-flat">Sign out</a>
                                     </div>
                                 </li>
                             </ul>
@@ -224,12 +224,12 @@
                         <!-- Optionally, you can add icons to the links -->
                         <li><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
                         <li <?=($action == 'addsliderform')?'class="active"':''?>>
-                            <a href="<?=$baseUrl?>/adminPanel/Add-Slider-Form"><i class="fa fa-picture-o"></i>
+                            <a href="<?=Yii::app()->request->baseUrl?>/index.php/adminPanel/Add-Slider-Form"><i class="fa fa-picture-o"></i>
                                 <span>Add slider</span>
                             </a>
                         </li>
                         <li <?=($action == 'slideimagelisttable' || $action == 'updatetextsliderform')?'class="active"':''?>>
-                            <a href="<?=$baseUrl?>/adminPanel/Slide-Image-List"><i class="fa fa-file-text"></i>
+                            <a href="<?=Yii::app()->request->baseUrl?>/index.php/adminPanel/Slide-Image-List"><i class="fa fa-file-text"></i>
                                 <span>Text over slide</span>
                             </a>
                         </li>
@@ -237,32 +237,32 @@
                             <a href="#"><i class="fa fa-edit"></i> <span>Pages</span> <i class="fa fa-angle-left pull-right"></i></a>
                             <ul class="treeview-menu <?=$menuOpen_Pages?>">
                                 <li <?=($action == 'edithome')?'class="active"':''?>>
-                                    <a id='edit-home' href="<?=$baseUrl?>/adminPanel/edithome">
+                                    <a id='edit-home' href="<?=Yii::app()->request->baseUrl?>/index.php/adminPanel/edithome">
                                         <i class="fa fa-circle-o"></i>Home
                                     </a>
                                 </li>
                                 <li <?=($action == 'editdestination')?'class="active"':''?>>
-                                    <a id='edit-destination' href="<?=$baseUrl?>/adminPanel/editdestination">
+                                    <a id='edit-destination' href="<?=Yii::app()->request->baseUrl?>/index.php/adminPanel/editdestination">
                                         <i class="fa fa-circle-o"></i>Destination
                                     </a>
                                 </li>
                                 <li <?=($action == 'edittypes')?'class="active"':''?>>
-                                    <a id='edit-types' href="<?=$baseUrl?>/adminPanel/edittypes">
+                                    <a id='edit-types' href="<?=Yii::app()->request->baseUrl?>/index.php/adminPanel/edittypes">
                                         <i class="fa fa-circle-o"></i>Types
                                     </a>
                                 </li>
                                 <li <?=($action == 'editoffers')?'class="active"':''?>>
-                                    <a id='edit-offers' href="<?=$baseUrl?>/adminPanel/editoffers">
+                                    <a id='edit-offers' href="<?=Yii::app()->request->baseUrl?>/index.php/adminPanel/editoffers">
                                         <i class="fa fa-circle-o"></i>Offers
                                     </a>
                                 </li>
                                 <li <?=($action == 'editinspireme')?'class="active"':''?>>
-                                    <a id='edit-inspire-me' href="<?=$baseUrl?>/adminPanel/editinspireme">
+                                    <a id='edit-inspire-me' href="<?=Yii::app()->request->baseUrl?>/index.php/adminPanel/editinspireme">
                                         <i class="fa fa-circle-o"></i>Inspire me
                                     </a>
                                 </li>
                                 <li <?=($action == 'editaboutus')?'class="active"':''?>>
-                                    <a id='edit-about-us' href="<?=$baseUrl?>/adminPanel/editaboutus">
+                                    <a id='edit-about-us' href="<?=Yii::app()->request->baseUrl?>/index.php/adminPanel/editaboutus">
                                         <i class="fa fa-circle-o"></i>About us
                                     </a>
                                 </li>
