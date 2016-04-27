@@ -3,8 +3,10 @@
 class AuthenticateController extends Controller
 {
     public $layout = '_admin-login';
+    private $_file_version;
     public function filters()
     {
+        $file_version = '?v=' . str_replace(' ', '0', microtime());
         if(!Yii::app()->user->isGuest)
             $this->redirect(array('//adminPanel/index'));
 
@@ -36,7 +38,7 @@ class AuthenticateController extends Controller
             '/themes/admin-panel/plugins/iCheck/icheck.min.js', CClientScript::POS_END);
 
         Yii::app()->getClientScript()->registerScriptFile($basePath .
-            '/js/_admin-login.js', CClientScript::POS_END);
+            '/js/_admin-login.js' . $file_version, CClientScript::POS_END);
     }
     public function actionIndex()
     {

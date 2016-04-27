@@ -18,6 +18,11 @@ $(function(){
         sliderListPartial($('#slider-content'));
     });
 
+    $('.checkbox-all').on('click', function(){
+        $('.checkbox-slider').prop('checked', $(this).prop('checked'));
+        $('.checkbox-all').prop('checked', $(this).prop('checked'));
+    });
+
     function sliderListPartial(elm_update){
         $.ajax({
             url: 'slideimagelisttableajax',

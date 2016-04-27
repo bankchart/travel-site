@@ -2,11 +2,13 @@
 
 class SiteController extends Controller
 {
+	private $_file_version;
 	public function init(){
+		$this->_file_version = '?v=' . str_replace(' ', '0', microtime());
 		RegisterFileUtil::registerDefaultFile();
 		$basePath = Yii::app()->baseUrl;
 		Yii::app()->getClientScript()->registerCssFile($basePath .
-            '/css/tours/style.css');
+            '/css/tours/style.css' . $this->_file_version);
 
 	}
 

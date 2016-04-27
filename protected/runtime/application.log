@@ -4796,3 +4796,25 @@ Stack trace:
 REQUEST_URI=/travel-site/adminPanel/Update-Text-Slider-Form/Slide-Image-List
 HTTP_REFERER=http://localhost/travel-site/adminPanel/Update-Text-Slider-Form/8
 ---
+2016/04/27 10:12:45 [error] [php] Undefined variable: file_version (/opt/lampp/htdocs/travel-site/protected/controllers/AdminPanelController.php:243)
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CController.php(286): AdminPanelController->runAction()
+#1 /opt/lampp/htdocs/travel-site/framework/web/CController.php(265): AdminPanelController->runActionWithFilters()
+#2 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(282): AdminPanelController->run()
+#3 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /opt/lampp/htdocs/travel-site/index.php(14): CWebApplication->run()
+REQUEST_URI=/travel-site/adminPanel/Slide-Image-List
+in /opt/lampp/htdocs/travel-site/protected/controllers/AdminPanelController.php (243)
+in /opt/lampp/htdocs/travel-site/index.php (14)
+2016/04/27 10:13:33 [error] [php] Undefined variable: file_version (/opt/lampp/htdocs/travel-site/protected/controllers/AdminPanelController.php:243)
+Stack trace:
+#0 /opt/lampp/htdocs/travel-site/framework/web/CController.php(286): AdminPanelController->runAction()
+#1 /opt/lampp/htdocs/travel-site/framework/web/CController.php(265): AdminPanelController->runActionWithFilters()
+#2 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(282): AdminPanelController->run()
+#3 /opt/lampp/htdocs/travel-site/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /opt/lampp/htdocs/travel-site/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /opt/lampp/htdocs/travel-site/index.php(14): CWebApplication->run()
+REQUEST_URI=/travel-site/adminPanel/Slide-Image-List
+in /opt/lampp/htdocs/travel-site/protected/controllers/AdminPanelController.php (243)
+in /opt/lampp/htdocs/travel-site/index.php (14)

@@ -4,8 +4,10 @@ class AdminPanelController extends Controller
 {
     public $layout = '_admin-panel';
     private $limit_size = 20;// 20Mb
+    private $_file_version;
     public function filters()
     {
+        $this->_file_version = '?v=' . str_replace(' ', '0', microtime());
         if(Yii::app()->user->isGuest)
             $this->redirect(array('//Authenticate/index'));
 
@@ -45,9 +47,9 @@ class AdminPanelController extends Controller
     {
         $basePath = Yii::app()->baseUrl;
         Yii::app()->getClientScript()->registerCssFile($basePath .
-            '/css/tours/_add-slider.css');
+            '/css/tours/_add-slider.css' . $this->_file_version);
         Yii::app()->getClientScript()->registerScriptFile($basePath .
-            '/js/tours/_add-slider.js', CClientScript::POS_END);
+            '/js/tours/_add-slider.js' . $this->_file_version, CClientScript::POS_END);
 
         $this->render('_add-slider');
     }
@@ -239,9 +241,9 @@ class AdminPanelController extends Controller
     {
         $basePath = Yii::app()->baseUrl;
         Yii::app()->getClientScript()->registerCssFile($basePath .
-            '/css/tours/_manage-text-slider.css');
+            '/css/tours/_manage-text-slider.css' . $this->_file_version);
         Yii::app()->getClientScript()->registerScriptFile($basePath .
-            '/js/tours/_manage-text-slider.js', CClientScript::POS_END);
+            '/js/tours/_manage-text-slider.js' . $this->_file_version, CClientScript::POS_END);
 
         $slider = new SliderManagement(null, new SliderModel);
         $limit = 5;
@@ -357,7 +359,7 @@ class AdminPanelController extends Controller
     {
         $basePath = Yii::app()->baseUrl;
         Yii::app()->getClientScript()->registerScriptFile($basePath .
-            '/js/tours/_edit-home.js', CClientScript::POS_END);
+            '/js/tours/_edit-home.js' . $this->_file_version, CClientScript::POS_END);
         $this->render('_edit-home');
     }
     public function actionEditDestination()
