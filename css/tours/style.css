@@ -10,6 +10,7 @@ body {
 }
 .index-slider {
     position: relative;
+    min-height: 500px;
 }
 .index-slider div {
     position: relative;
@@ -86,6 +87,7 @@ body {
 }
 .package-footer {
     position: relative;
+    margin-bottom: 15px;
 }
 .package-footer>div{
     position: absolute;

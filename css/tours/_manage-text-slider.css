@@ -2,3 +2,6 @@
 .manage-label:hover {
     cursor: pointer;
 }
+.remove-label:hover {
+    cursor: pointer;
+}

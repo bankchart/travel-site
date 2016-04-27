@@ -97,15 +97,15 @@
                                 </div>
                             </div>
                             <div class='row'>
-                                <div class='col-md-4 col-sm-4 col-xs-4 package-footer'>
+                                <div class='col-md-4 col-sm-4 package-footer'>
                                     <img src='<?php echo Yii::app()->baseUrl; ?>/images/test/holiday-1.jpg' />
                                     <div><a href='#'><strong>Seaside</strong></a></div>
                                 </div>
-                                <div class='col-md-4 col-sm-4 col-xs-4 package-footer'>
+                                <div class='col-md-4 col-sm-4 package-footer'>
                                     <img src='<?php echo Yii::app()->baseUrl; ?>/images/test/holiday-2.jpg' />
                                     <div><a href='#'><strong>Exterme Football</strong></a></div>
                                 </div>
-                                <div class='col-md-4 col-sm-4 col-xs-4 package-footer'>
+                                <div class='col-md-4 col-sm-4 package-footer'>
                                     <img src='<?php echo Yii::app()->baseUrl; ?>/images/test/holiday-3.jpg' />
                                     <div><a href='#'><strong>City Break</strong></a></div>
                                 </div>
