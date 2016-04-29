@@ -23,7 +23,7 @@
     <section class="content">
         <div class='row'>
             <div class='col-md-6 col-sm-6'>
-                <div class='box box-default'>
+                <div class='box box-primary'>
                     <div class='box-header with-border'>
                         <h3 class='box-title'>Set up slide</h3>
                     </div>
@@ -73,7 +73,7 @@
                 </div>
             </div>
             <div class='col-md-6 col-sm-6'>
-                <div class='box box-default'>
+                <div class='box box-primary'>
                     <div class='box-header with-border'>
                         <h3 class='box-title'>Images preview</h3>
                     </div>
